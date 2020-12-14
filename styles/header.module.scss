@@ -1,0 +1,30 @@
+.header{
+    height:60px;
+    border-bottom:1px solid #cccccc;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    .headLogoImg{
+        width: 160px;
+    }
+    .sortList{
+        margin-left: 120px;
+        display: flex;
+        .span{
+            margin: 15px;
+            cursor: pointer;
+            color: #444444;
+            transition: all 0.1s ease-in-out;
+        }
+        .span:hover {
+            color: #000000;
+            transform: scale(1.2);
+        }
+        .spanShow{
+            margin: 15px;
+            cursor: pointer;
+            color: #000000;
+            transform: scale(1.2);
+        }
+    }
+}

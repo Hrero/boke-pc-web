@@ -1,0 +1,1 @@
+{"ast":null,"code":"import '../style/layoutStyle.css';","map":{"version":3,"sources":["/Users/app/code/server-rendered-website/pages/_app.js"],"names":[],"mappings":"AAAA,OAAO,0BAAP","sourcesContent":["import '../style/layoutStyle.css';\n"]},"metadata":{},"sourceType":"module"}

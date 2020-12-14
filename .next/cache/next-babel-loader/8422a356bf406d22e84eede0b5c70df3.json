@@ -1,0 +1,1 @@
+{"ast":null,"code":"var dev = false;\nconsole.log(\"production\", true);\nexport default {\n  serverUrl: '127.0.0.1'\n};","map":null,"metadata":{},"sourceType":"module"}
