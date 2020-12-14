@@ -1,4 +1,7 @@
 import App, { Container } from 'next/app';
+import { Provider } from 'react-redux';
+import initializeStore from '../store/store';
+import withRedux from '../lib/with-redux-app';
 import '../styles/layoutStyle.scss';
 import React from 'react';
 import Layout from '../components/Layout';
@@ -22,23 +25,16 @@ class MyApp extends App {
             pageProps
         }
     }
-    // constructor(props) {
-    //     console.log(props, '======');
-    // }
-    // async getHeaderSortList() {
-    //     const data = await http({ url: '/sort/getSortList', method: 'get' , params: {}})
-    //     return {
-    //         sortList: data.data
-    //     }
-    // }
     render() {
         const { Component, pageProps } = this.props;
         return (
             <Container>
-                <Layout sortList={this.props.sortList}>
-                    {/* 把pageProps解构后传递给组件 */}
-                    <Component {...pageProps} />
-                </Layout>
+                <Provider store={initializeStore()}>
+                    <Layout sortList={this.props.sortList} >
+                            {/* 把pageProps解构后传递给组件 */}
+                            <Component {...pageProps} />
+                    </Layout>
+                </Provider>
             </Container>
         )
     }
@@ -51,5 +47,4 @@ MyApp.getInitialProps = async () => {
     }
 }
 
-
-export default MyApp
+export default withRedux(MyApp)

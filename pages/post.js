@@ -1,14 +1,16 @@
 import { withRouter } from 'next/router';
+import { connect } from 'react-redux'
 import LeavingMessage from '../components/LeavingMessage';
 import VisitorList from '../components/VisitorList';
 import ArticleList from '../components/ArticleList';
 import Head from 'next/head'
 
-const Post = withRouter((props) => (
-    // name
+const Post = withRouter(({ handleLabelPage, labelPage , router}) => {
+    handleLabelPage(router.query.id)
+    return (
     <div className="homeWrap">
         <Head>
-            <title>{props.router.query.name}</title>
+            <title>{router.query.name}</title>
         </Head>
             <div className="homeLeft">
                 <ArticleList />
@@ -33,6 +35,28 @@ const Post = withRouter((props) => (
         `}
         </style>
     </div>
-));
+    )
+});
 
-export default Post;
+function mapStateToProps(state) {
+    const { labelPage } = state
+    return {
+        labelPage
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        handleLabelPage(labelPage = 0) {
+            dispatch({ type: 'handleLabelPage', labelPage })
+        }
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Post)
+
+// export default Post;

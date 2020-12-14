@@ -1,10 +1,10 @@
+import { connect } from 'react-redux'
 import Link from 'next/link';
+import Router from 'next/router'
 import imgs from '../images/images';
 import styles from '../styles/header.module.scss';
-import http from '../http';
 
-const Header = (props) => {
-    console.log('ssss');
+const Header = ({ labelPage, sortList}) => {
     return (
         <header className={styles.header}>
             <div>
@@ -12,12 +12,12 @@ const Header = (props) => {
             </div>
             <div className={styles.sortList}>
                     <Link href="/">
-                        <div className={styles.span, styles.spanShow}>首页</div>
+                        <div className={[ labelPage ===  0? styles.spanShow : styles.span].join('')}>首页</div>
                     </Link>
-                    {props.sortList.map(show => {
+                    {sortList.map(show => {
                         return (
                             <Link key={show.value} as={`/load/${show.value}`} href={`/post?id=${show.value}&name=${show.name}`}>
-                                <div className={styles.span}>{show.name}</div>
+                                <div className={[ labelPage ===  show.value? styles.spanShow : styles.span].join('')}>{show.name}</div>
                             </Link>
                         );
                     })}
@@ -26,11 +26,23 @@ const Header = (props) => {
     )
 }
 
-Header.getInitialProps = async (context) => {
-    const data = await http({ url: '/sort/getSortList', method: 'get' , params: {}})
+function mapStateToProps(state) {
+    const { labelPage } = state
     return {
-        shows: data.data
+        labelPage
     }
 }
 
-export default Header;
+function mapDispatchToProps(dispatch) {
+    return {
+        handleLabelPage() {
+            dispatch({ type: 'handleLabelPage' })
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+// export default Header;
