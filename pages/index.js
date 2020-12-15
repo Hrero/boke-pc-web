@@ -53,6 +53,13 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
+// MyApp.getInitialProps = async () => {
+//     const data = await http({ url: '/sort/getSortList', method: 'get' , params: {}})
+//     return {
+//         sortList: data.data
+//     }
+// }
+
 export default connect(
     mapStateToProps,
     mapDispatchToProps

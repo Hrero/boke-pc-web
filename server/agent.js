@@ -3,19 +3,34 @@ const axios = require('axios');
 
 module.exports = (req, res) => {
     let url = req.headers['api-url'];
-    if (req.headers['api-method'] === 'get') {
-        const params = Object.keys(req.body).map(key => {
-            return key + '=' + req.body.key + '&';
+    const method = req.headers['api-method'];
+    const requstServer = {};
+    if (method === 'get') {
+        const params = {};
+        Object.keys(req.body).map(key => {
+            params[key] = req.body.key;
         })
-        url = url + params;
+        requstServer = {
+            params
+        }
     }
-    axios[req.headers['api-method']](config.serverUrl + url).then(response => {
+    if (method === 'post') {
+        requstServer = req.body;
+    }
+    axios[method](config.serverUrl + url, requstServer).then(response => {
         res.send(response.data)
     }).catch(error => {
-        console.log('请求类型*************', req.headers['api-method']);
-        console.log('请求地址*************', config.serverUrl + url);
-        console.log('请求参数*************', JSON.stringify(req.body));
+        catchError({
+            method, 
+            url: config.serverUrl + url,
+            body: req.body
+        })
     });
+    function catchError({method, url, body}) {
+        console.log('请求类型*************', method);
+        console.log('请求地址*************', url);
+        console.log('请求参数*************', JSON.stringify(body));
+    }
 }
 
 
