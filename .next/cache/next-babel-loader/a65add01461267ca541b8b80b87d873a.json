@@ -1,0 +1,1 @@
+{"ast":null,"code":"/**\n * 页面名_模块名_类型名\n */\nconst comState = {\n  com_label_integer: action => {\n    return {\n      default: 0,\n      type: 'comLabelInteger',\n      data: {\n        com_label_integer: Number(action ? action.com_label_integer : 0)\n      }\n    };\n  }\n};\nexport default comState;","map":null,"metadata":{},"sourceType":"module"}

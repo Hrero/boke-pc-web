@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <title>eleven-boke</title>
+                    {/* <title>eleven-boke</title> */}
                 </Head>
                 <body>
                     <Main />

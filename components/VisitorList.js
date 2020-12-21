@@ -1,26 +1,22 @@
-const VisitorList = (props) => {
+import { dateFormat } from 'zgl-utils-js';
+ 
+const VisitorList = ({view_list}) => {
     return (
         <div className="visitorList borderNone">
             <div className="visitorTitle">
-                留言列表 
+                访客列表
             </div>
             <ul>
-                <li  className="visitorInfo">
-                    <span>加油</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
-                <li  className="visitorInfo">
-                    <span>干啥呢老哥</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
-                <li  className="visitorInfo">
-                    <span>来了老弟</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
-                <li  className="visitorInfo">
-                    <span>加油</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
+                {
+                    view_list.map(mess => {
+                        return (
+                            <li key={mess.id} className="visitorInfo">
+                                <span>{mess.ip}</span>
+                                <span>{ dateFormat(mess.gmtModified, 'yyyy-MM-dd hh:mm:ss') }</span>
+                            </li>
+                        )
+                    })
+                }
             </ul>
             <style jsx>
             {`
@@ -40,13 +36,17 @@ const VisitorList = (props) => {
                     color: #333333;
                     margin-bottom: 10px;
                 }
+                .visitorInfo{
+                    margin-top:5px;
+                    margin-bottom:5px;
+                }
                 .visitorInfo span{
                     font-size: 12px;
                     color: #666666;
                     margin-right: 10px;
                 }
                 .borderNone{
-                    border:none;
+                    margin-top: 20px;
                 }
             `}
             </style>

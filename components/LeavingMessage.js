@@ -1,26 +1,20 @@
-const LeavingMessage = (props) => {
+const LeavingMessage = ({message_list}) => {
     return (
         <div className="visitorList">
-            <div className="visitorTitle">
-                访客列表 
+            <div className="visitorTitle"> 
+                留言列表 
             </div>
             <ul>
-                <li  className="visitorInfo">
-                    <span>190.168.0.1</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
-                <li  className="visitorInfo">
-                    <span>190.168.0.1</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
-                <li  className="visitorInfo">
-                    <span>190.168.0.1</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
-                <li  className="visitorInfo">
-                    <span>190.168.0.1</span>
-                    <span>2020-01-01 10:10:20</span>
-                </li>
+                {
+                    message_list.map(mess => {
+                        return (
+                            <li  key={mess.id}  className="visitorInfo">
+                                <span>{mess.ip}</span>
+                                <span>{mess.content}</span>
+                            </li>
+                        )
+                    })
+                }
             </ul>
             <style jsx>
                 {`
@@ -29,7 +23,6 @@ const LeavingMessage = (props) => {
                     }
                     .visitorList{
                         padding-bottom:20px;
-                        border-bottom:1px solid #cccccc;
                         margin-bottom: 20px;
                     }
                     .homeRight .visitorList li{
@@ -39,6 +32,10 @@ const LeavingMessage = (props) => {
                         font-size: 12px;
                         color: #333333;
                         margin-bottom: 10px;
+                    }
+                    .visitorInfo{
+                        margin-top:5px;
+                        margin-bottom:5px;
                     }
                     .visitorInfo span{
                         font-size: 12px;

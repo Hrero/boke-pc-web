@@ -1,23 +1,25 @@
-import { connect } from 'react-redux'
-import { withRouter } from 'next/router';
+import { connect, useDispatch } from 'react-redux'
 import LeavingMessage from '../components/LeavingMessage';
 import VisitorList from '../components/VisitorList';
 import ArticleList from '../components/ArticleList';
-import Head from 'next/head'
+import Head from 'next/head';
+import initializeStore from '../store/store';
+import httpServer from '../httpServer';
 
-const Index = withRouter(({ handleLabelPage, labelPage, router }) => {
-    handleLabelPage(0)
+const Index = ({ comLabelInteger, initialReduxState }) => {
+    const { index_article_list, index_message_list, index_view_list } = initialReduxState;
+    comLabelInteger(0) // 首页
     return (
         <div className="homeWrap">
             <Head>
                 <title>首页</title>
             </Head>
             <div className="homeLeft">
-                <ArticleList />
+                <ArticleList article_list={index_article_list?.data?.list}/>
             </div>
             <div className="homeRight">
-                <LeavingMessage />
-                <VisitorList />
+                <VisitorList view_list={index_view_list?.data}/>
+                <LeavingMessage message_list={index_message_list?.data}/>
             </div>
             <style jsx>
             {`
@@ -36,33 +38,34 @@ const Index = withRouter(({ handleLabelPage, labelPage, router }) => {
             </style>
         </div>
     )
-});
+};
 
 function mapStateToProps(state) {
-    const { labelPage } = state
+    const { com_label_integer } = state
     return {
-        labelPage
+        com_label_integer
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleLabelPage(labelPage) {
-            dispatch({ type: 'handleLabelPage', labelPage })
+        comLabelInteger(com_label_integer = 0) {
+            dispatch({ type: 'comLabelInteger', com_label_integer })
         }
     }
 }
 
-// MyApp.getInitialProps = async () => {
-//     const data = await http({ url: '/sort/getSortList', method: 'get' , params: {}})
-//     return {
-//         sortList: data.data
-//     }
-// }
+export async function getServerSideProps () {
+    const reduxStore = initializeStore()
+    const initialReduxState = await httpServer({url: '/api/index', method: 'post' , params: {}})
+    return {
+        props: {
+            initialReduxState: initialReduxState.data
+        }
+    }
+}
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Index)
-
-// export default Index;
+)(Index)

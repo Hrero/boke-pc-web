@@ -1,36 +1,30 @@
-const config = require('./config');
-const axios = require('axios');
+const request = require('./request');
+const { isEmpty } = require('zgl-utils-js');
 
-module.exports = (req, res) => {
-    let url = req.headers['api-url'];
-    const method = req.headers['api-method'];
-    const requstServer = {};
-    if (method === 'get') {
-        const params = {};
-        Object.keys(req.body).map(key => {
-            params[key] = req.body.key;
-        })
-        requstServer = {
-            params
+module.exports = async (req, res) => {
+    request({
+        url: '/user/addUserView',
+        method: 'post',
+        body: {
+            ip: getClientIp(req)
         }
-    }
-    if (method === 'post') {
-        requstServer = req.body;
-    }
-    axios[method](config.serverUrl + url, requstServer).then(response => {
-        res.send(response.data)
-    }).catch(error => {
-        catchError({
-            method, 
-            url: config.serverUrl + url,
-            body: req.body
-        })
-    });
-    function catchError({method, url, body}) {
-        console.log('请求类型*************', method);
-        console.log('请求地址*************', url);
-        console.log('请求参数*************', JSON.stringify(body));
-    }
+    })
+    const data = await request({
+        url: req.headers['api-url'],
+        method: req.headers['api-method'],
+        body: req.body
+    })
+    res.send(data)
+    function getClientIp(req) {
+        var ipAddress;
+        var forwardedIpsStr = req.header('x-forwarded-for'); 
+        if (forwardedIpsStr) {
+            var forwardedIps = forwardedIpsStr.split(',');
+            ipAddress = forwardedIps[0];
+        }
+        if (!ipAddress) {
+            ipAddress = req.connection.remoteAddress;
+        }
+        return ipAddress.split(':ffff:')[1];
+    };
 }
-
-

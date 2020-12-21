@@ -4,7 +4,7 @@ import Router from 'next/router'
 import imgs from '../images/images';
 import styles from '../styles/header.module.scss';
 
-const Header = ({ labelPage, sortList}) => {
+const Header = ({ com_label_integer, sortList}) => {
     return (
         <header className={styles.header}>
             <div>
@@ -12,12 +12,12 @@ const Header = ({ labelPage, sortList}) => {
             </div>
             <div className={styles.sortList}>
                     <Link href="/">
-                        <div className={[ labelPage ===  0? styles.spanShow : styles.span].join('')}>首页</div>
+                        <div className={[ com_label_integer ===  0? styles.spanShow : styles.span].join('')}>首页</div>
                     </Link>
                     {sortList.map(show => {
                         return (
                             <Link key={show.value} as={`/load/${show.value}`} href={`/post?id=${show.value}&name=${show.name}`}>
-                                <div className={[ labelPage ===  show.value? styles.spanShow : styles.span].join('')}>{show.name}</div>
+                                <div className={[ com_label_integer ===  show.value? styles.spanShow : styles.span].join('')}>{show.name}</div>
                             </Link>
                         );
                     })}
@@ -27,16 +27,16 @@ const Header = ({ labelPage, sortList}) => {
 }
 
 function mapStateToProps(state) {
-    const { labelPage } = state
+    const { com_label_integer } = state
     return {
-        labelPage
+        com_label_integer
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleLabelPage() {
-            dispatch({ type: 'handleLabelPage' })
+        comLabelInteger() {
+            dispatch({ type: 'comLabelInteger' })
         }
     }
 }

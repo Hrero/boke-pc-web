@@ -1,11 +1,22 @@
+import Link from 'next/link';
+
 const ArticleList = (props) => {
+    const { article_list } = props;
     return (
         <div>
             <ul>
-                <li>
-                    <div className="articleTitle">标题标题标题标题标题标题标题</div>
-                    <div className="articleTxt">描述描述描述描述</div>
-                </li>
+                {
+                    article_list?.map(item => {
+                        return (
+                            <Link key={item.id} as={`/info/${item.id}`} href={`/info?id=${item.id}`}>
+                                <li className="articleLi">
+                                    <div className="articleTitle">{item.title}</div>
+                                    <div className="articleTxt">{item.summary}</div>
+                                </li>
+                            </Link>
+                        )
+                    })
+                }
             </ul>
             <style jsx>
                 {`
@@ -20,6 +31,9 @@ const ArticleList = (props) => {
                         color: #999999;
                         line-height: 30px;
                         cursor: pointer;
+                    }
+                    .articleLi{
+                        margin-bottom: 30px;
                     }
                 `}
             </style>
