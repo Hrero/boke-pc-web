@@ -8,12 +8,14 @@ const Header = ({ com_label_integer, sortList}) => {
     return (
         <header className={styles.header}>
             <div>
-                <img className={styles.headLogoImg} src={ imgs.headerLogo } />
+                <Link href="/">
+                    <img className={styles.headLogoImg} src={ imgs.headerLogo } />
+                </Link>
             </div>
             <div className={styles.sortList}>
-                    <Link href="/">
+                    {/* <Link href="/">
                         <div className={[ com_label_integer ===  0? styles.spanShow : styles.span].join('')}>首页</div>
-                    </Link>
+                    </Link> */}
                     {sortList.map(show => {
                         return (
                             <Link key={show.value} as={`/load/${show.value}`} href={`/post?id=${show.value}&name=${show.name}`}>
