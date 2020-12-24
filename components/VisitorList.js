@@ -20,13 +20,9 @@ const VisitorList = ({view_list}) => {
             </ul>
             <style jsx>
             {`
-                .homeRight{
-                    padding: 20px;
-                }
                 .visitorList{
-                    padding-bottom:20px;
-                    border-bottom:1px solid #cccccc;
                     margin-bottom: 20px;
+                    padding: 16px;
                 }
                 .homeRight .visitorList li{
                     margin-bottom: 5px;
@@ -46,7 +42,8 @@ const VisitorList = ({view_list}) => {
                     margin-right: 10px;
                 }
                 .borderNone{
-                    margin-top: 20px;
+                    // margin-top: 20px;
+                    background: #ffffff;
                 }
             `}
             </style>

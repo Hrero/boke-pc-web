@@ -1,11 +1,13 @@
 .header{
     height:60px;
-    border-bottom:1px solid #cccccc;
+    // border-bottom:1px solid #cccccc;
+    box-shadow: 1px 1px 10px #f6f6f6;
     display: flex;
     align-items: center;
     padding: 0 50px;
+    background: #ffffff;
     .headLogoImg{
-        width: 160px;
+        width: 155px;
     }
     .sortList{
         margin-left: 120px;

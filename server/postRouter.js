@@ -23,12 +23,18 @@ module.exports = async (req, res) => {
         method: 'post',
         body: {}
     })
+    const com_label_integer = await request({
+        url: '/sort/getSortList',
+        method: 'get',
+        body: {}
+    })
 
-    if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(post_view_list)) {
+    if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(post_view_list) && !isEmpty(com_label_integer)) {
         res.send(Response.sendSuccess({
             post_article_list,
             post_message_list,
-            post_view_list
+            post_view_list,
+            com_label_integer
         }))
     } else {
         res.send(Response.sendError())

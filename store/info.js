@@ -3,28 +3,19 @@
  * 页面名_模块名_类型名
  */
 export default {
-    index_article_list: (action) => {
+    info_message_list: (action) => {
         return {
             default: {},
-            type: 'indexArticleList',
-            data: {
-                index_article_list: action? action.data: {}
-            }
-        }
-    },
-    index_message_list: (action) => {
-        return {
-            default: {},
-            type: 'indexMessageList',
+            type: 'info_message_list',
             data: {
                 index_message_list: action? action.data: {}
             }
         }
     },
-    index_view_list: (action) => {
+    info_view_list: (action) => {
         return {
             default: {},
-            type: 'indexViewList',
+            type: 'info_view_list',
             data: {
                 index_view_list: action? action.data: {}
             }

@@ -2,10 +2,13 @@ import App from 'next/app';
 import { Provider } from 'react-redux';
 import initializeStore from '../store/store';
 import withRedux from '../lib/with-redux-app';
+import '../styles/table.scss';
+import 'antd/dist/antd.css';
 import '../styles/layoutStyle.scss';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+
 import React from 'react';
-import Layout from '../components/Layout';
-import httpAgent from '../httpAgent';
 
 class MyApp extends App {
     // App组件的getInitialProps比较特殊
@@ -29,20 +32,12 @@ class MyApp extends App {
         const { Component, pageProps } = this.props;
         return (
             <Provider store={initializeStore()}>
-                <Layout sortList={this.props.sortList} >
-                        {/* 把pageProps解构后传递给组件 */}
-                        <Component {...pageProps} />
-                </Layout>
+                {/* 把pageProps解构后传递给组件 */}
+                <Component {...pageProps} />
             </Provider>
         )
     }
 }
 
-MyApp.getInitialProps = async () => {
-    const data = await httpAgent({ url: '/sort/getSortList', method: 'get' , params: {}})
-    return {
-        sortList: data.data
-    }
-}
 
 export default withRedux(MyApp)

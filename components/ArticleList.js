@@ -8,7 +8,7 @@ const ArticleList = (props) => {
                 {
                     article_list?.map(item => {
                         return (
-                            <Link key={item.id} as={`/info/${item.id}`} href={`/info?id=${item.id}`}>
+                            <Link key={item.id} as={`/infos/${item.id}`} href="/infos/[item.id]" >
                                 <li className="articleLi">
                                     <div className="articleTitle">{item.title}</div>
                                     <div className="articleTxt">{item.summary}</div>
@@ -27,13 +27,15 @@ const ArticleList = (props) => {
                         cursor: pointer;
                     }
                     .articleTxt{
-                        font-size: 14px;
+                        font-size: 13px;
                         color: #999999;
                         line-height: 30px;
                         cursor: pointer;
                     }
                     .articleLi{
-                        margin-bottom: 30px;
+                        padding: 15px 0 20px 0;
+                        border-bottom: 1px solid #f0f0f0;
+                        margin: 15px 0;
                     }
                 `}
             </style>

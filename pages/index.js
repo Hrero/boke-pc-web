@@ -1,71 +1,53 @@
-import { connect, useDispatch } from 'react-redux'
-import LeavingMessage from '../components/LeavingMessage';
-import VisitorList from '../components/VisitorList';
-import ArticleList from '../components/ArticleList';
-import Head from 'next/head';
-import initializeStore from '../store/store';
-import httpServer from '../httpServer';
+import Container from '../components/others/container'
+import MoreStories from '../components/others/more-stories'
+import HeroPost from '../components/others/hero-post'
+import Intro from '../components/others/intro'
+import Layout from '../components/others/layout'
+import Head from 'next/head'
+import { CMS_NAME } from '../lib/constants'
 
-const Index = ({ comLabelInteger, initialReduxState }) => {
-    const { index_article_list, index_message_list, index_view_list } = initialReduxState;
-    comLabelInteger(0) // 首页
+const Index = ({ allPosts }) => {
+    const heroPost = allPosts[0]
+    console.log(heroPost, 'heroPost');
     return (
-        <div className="homeWrap">
+        <>
+        <Layout>
             <Head>
-                <title>首页</title>
+                <title>{CMS_NAME}</title>
             </Head>
-            <div className="homeLeft">
-                <ArticleList article_list={index_article_list?.data?.list}/>
-            </div>
-            <div className="homeRight">
-                <VisitorList view_list={index_view_list?.data}/>
-                <LeavingMessage message_list={index_message_list?.data}/>
-            </div>
-            <style jsx>
-            {`
-                .homeWrap{
-                    display: flex;
-                    max-width: 1200px;
-                    width: 1200px;
-                    padding: 20px 0;
-                    margin:0 auto;
-                }
-                .homeLeft{
-                    width: 800px;
-                    padding: 20px;
-                }
-            `}
-            </style>
-        </div>
+            <Container>
+                <Intro />
+                {heroPost && (
+                    <HeroPost
+                        title={heroPost.title}
+                        coverImage={heroPost.coverImage}
+                        date={heroPost.date}
+                        author={heroPost.author}
+                        slug={heroPost.slug}
+                        excerpt={heroPost.excerpt}
+                    />
+                )}
+                {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+            </Container>
+        </Layout>
+        </>
     )
-};
-
-function mapStateToProps(state) {
-    const { com_label_integer } = state
-    return {
-        com_label_integer
-    }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        comLabelInteger(com_label_integer = 0) {
-            dispatch({ type: 'comLabelInteger', com_label_integer })
+export async function getStaticProps() {
+    const allPosts = [
+        {
+          title: 'Preview Mode for Static Generation',
+          date: '2020-03-16T05:35:07.322Z',
+          slug: '1',
+          author: { name: 'Joe Haddad', picture: '/assets/blog/authors/joe.jpeg' },
+          coverImage: '/assets/blog/preview/cover.jpg',
+          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
         }
-    }
-}
-
-export async function getServerSideProps () {
-    const reduxStore = initializeStore()
-    const initialReduxState = await httpServer({url: '/api/index', method: 'post' , params: {}})
+    ]
     return {
-        props: {
-            initialReduxState: initialReduxState.data
-        }
+        props: { allPosts },
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Index)
+export default Index;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Link from 'next/link';
-import Router from 'next/router'
+import Router from 'next/router';
 import imgs from '../images/images';
 import styles from '../styles/header.module.scss';
 

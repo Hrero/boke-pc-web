@@ -18,12 +18,10 @@ const LeavingMessage = ({message_list}) => {
             </ul>
             <style jsx>
                 {`
-                    .homeRight{
-                        padding: 20px;
-                    }
                     .visitorList{
-                        padding-bottom:20px;
                         margin-bottom: 20px;
+                        padding: 16px;
+                        background: #ffffff;
                     }
                     .homeRight .visitorList li{
                         margin-bottom: 5px;
@@ -41,9 +39,6 @@ const LeavingMessage = ({message_list}) => {
                         font-size: 12px;
                         color: #666666;
                         margin-right: 10px;
-                    }
-                    .borderNone{
-                        border:none;
                     }
                 `}
                 </style>
