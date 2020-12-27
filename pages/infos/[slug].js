@@ -1,28 +1,38 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import VisitorList from '../../components/VisitorList';
 import LeavingMessage from '../../components/LeavingMessage';
 import PostBody from "../../components/postBody";
 import httpServer from '../../httpServer';
 import Layout from '../../components/Layout';
+import Header from '../../components/Header';
+import InfoThumdsIcon from '../../components/others/InfoThumdsIcon';
 
 export default function Info({ slug, initialReduxState, morePosts, preview }) {
     const router = useRouter();
-    const { info_Article_Vo, info_message_list, info_view_list, com_label_integer } = initialReduxState;
+    const { info_Article_Vo, info_message_list, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, user_ip } = initialReduxState;
     if (!router.isFallback && !slug) {
         return <ErrorPage statusCode={404} />;
     }
     return (
-        <Layout sortList={com_label_integer.data} >
+        <Layout html_head_info={html_head_info}>
+            <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>
             <div className="bodyWrap">
                 <div className="homeWrap">
-                    <PostBody content={info_Article_Vo.data.html} />
+                    <div>
+                        <PostBody content={info_Article_Vo.data.html} au_in_for={au_in_for}/>
+                    </div>
                     <div className="homeRight">
                         <VisitorList view_list={info_view_list?.data}/>
                         <LeavingMessage message_list={info_message_list?.data}/>
                     </div>
                 </div>
+                <InfoThumdsIcon 
+                    thumdsStatus={info_Article_Vo.data.thumdsStatus} 
+                    thumdsSum={info_Article_Vo.data.thumdsSum}
+                    articleId={info_Article_Vo.data.id}
+                    ip={user_ip}
+                />
                 <style jsx>
                 {`
                     .homeRight{
@@ -45,40 +55,5 @@ export async function getServerSideProps({ params }) {
             initialReduxState: initialReduxState.data
         }
     }
-    // const post = getPostBySlug(params.slug, [
-    //     "title",
-    //     "date",
-    //     "slug",
-    //     "author",
-    //     "content",
-    //     "ogImage",
-    //     "coverImage",
-    // ]);
-    // console.log(post, "postpost");
-    // const content = await markdownToHtml(post.content || "");
-    // console.log(content, "postpost1");
-
-    return {
-        props: {
-            post: {
-                ...post,
-                content,
-            },
-        },
-    };
 }
 
-// export async function getStaticPaths() {
-//     const posts = getAllPosts(["slug"]);
-
-//     return {
-//         paths: posts.map((post) => {
-//             return {
-//                 params: {
-//                     slug: post.slug,
-//                 },
-//             };
-//         }),
-//         fallback: false,
-//     };
-// }

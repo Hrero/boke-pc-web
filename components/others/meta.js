@@ -1,7 +1,9 @@
-import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../../lib/constants'
+import Head from "next/head";
+import { CMS_NAME, HOME_OG_IMAGE_URL } from "../../lib/constants";
 
-export default function Meta() {
+export default function Meta({html_head_info}) {
+    const { headTitle, headKeywords, headDescription, author } = html_head_info;
+
   return (
     <Head>
       <link
@@ -31,12 +33,11 @@ export default function Meta() {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-      />
+      <meta name="description" content={headDescription? headDescription: 'js和java的博客分享'} />
+      <meta name="keywords" content={headKeywords? headKeywords: 'js和java的博客分享'} />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta name="author" content={author? author: 'ELEVEN'} />
+      <title>{headTitle ? headTitle : "ELEVEN"}</title>
     </Head>
-  )
+  );
 }

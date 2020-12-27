@@ -40,6 +40,10 @@ const LeavingMessage = ({message_list}) => {
                         color: #666666;
                         margin-right: 10px;
                     }
+                    ul{
+                        margin-bottom: 0rem;
+                    }
+                    
                 `}
                 </style>
         </div>

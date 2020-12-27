@@ -12,7 +12,7 @@ const VisitorList = ({view_list}) => {
                         return (
                             <li key={mess.id} className="visitorInfo">
                                 <span>{mess.ip}</span>
-                                <span>{ dateFormat(mess.gmtModified, 'yyyy-MM-dd hh:mm:ss') }</span>
+                                <span>{mess.gmtCreated}</span>
                             </li>
                         )
                     })
@@ -44,6 +44,9 @@ const VisitorList = ({view_list}) => {
                 .borderNone{
                     // margin-top: 20px;
                     background: #ffffff;
+                }
+                ul{
+                    margin-bottom: 0rem;
                 }
             `}
             </style>

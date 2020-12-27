@@ -7,7 +7,16 @@ const comState = {
             default: 0,
             type: 'comLabelInteger',
             data: {
-                com_label_integer: Number(action?action.com_label_integer:0)
+                com_label_integer: Number(action? action.com_label_integer: 0)
+            }
+        }
+    },
+    com_sort_list: (action) => {
+        return {
+            default: 0,
+            type: 'comSortList',
+            data: {
+                com_sort_list:  action? action.data: {}
             }
         }
     }

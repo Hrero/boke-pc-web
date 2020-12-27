@@ -1,3 +1,5 @@
+
+
 /**
  * 页面名_模块名_类型名
  */
@@ -20,12 +22,12 @@ export default {
             }
         }
     },
-    post_view_list: (action) => {
+    post_view_list: async (action) => {
         return {
             default: {},
             type: 'postViewList',
             data: {
-                index_view_list: action? action.data: {}
+                post_view_list: action? action.data: {}
             }
         }
     }

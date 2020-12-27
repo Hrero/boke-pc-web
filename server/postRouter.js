@@ -14,6 +14,8 @@ module.exports = async (req, res) => {
         url: '/article/getArticleList',
         method: 'post',
         body: {
+            sortId: req.body.sortId,
+            ip: getClientIp(req),
             pageSize: 100,
             pageNum: 1
         }
@@ -21,24 +23,44 @@ module.exports = async (req, res) => {
     const post_view_list = await request({
         url: '/user/getUserView',
         method: 'post',
-        body: {}
+        body: {
+            sortId: req.body.sortId
+        }
     })
-    const com_label_integer = await request({
+    const com_sort_list = await request({
         url: '/sort/getSortList',
         method: 'get',
         body: {}
     })
-
-    if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(post_view_list) && !isEmpty(com_label_integer)) {
+    if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             post_article_list,
             post_message_list,
+            com_sort_list,
             post_view_list,
-            com_label_integer
+            com_label_integer: req.body.sortId,
+            html_head_info: {
+                headTitle: 'ELEVEN', 
+                headKeywords: 'js和java的博客分享', 
+                headDescription: 'js和java的博客分享', 
+                author: 'ELEVEN'
+            }, 
         }))
     } else {
         res.send(Response.sendError())
     }
 }
 
+function getClientIp(req) {
+    var ipAddress;
+    var forwardedIpsStr = req.header('x-forwarded-for'); 
+    if (forwardedIpsStr) {
+        var forwardedIps = forwardedIpsStr.split(',');
+        ipAddress = forwardedIps[0];
+    }
+    if (!ipAddress) {
+        ipAddress = req.connection.remoteAddress;
+    }
+    return ipAddress.split(':ffff:')[1];
+};
 

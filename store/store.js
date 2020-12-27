@@ -5,7 +5,7 @@ import postState from '../store/post';
 import comState from '../store/com';
 import infoState from '../store/info';
 
-const allState = Object.assign(indexState, postState, comState);
+const allState = Object.assign(indexState, postState, comState, infoState);
 
 const initialState = Object.keys(allState).map(key => {
     return {

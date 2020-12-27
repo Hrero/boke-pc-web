@@ -1,10 +1,11 @@
-import Header from './Header';
+import Meta from './others/meta';
 
-const Layout = (props) => {
+
+const Layout = ({children, html_head_info}) => {
     return (
         <div>
-            <Header sortList={props.sortList}/>
-            {props.children}
+            <Meta html_head_info={html_head_info}/>
+            {children}
         </div>
     )
 }

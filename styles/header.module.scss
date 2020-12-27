@@ -1,16 +1,15 @@
 .header{
     height:60px;
-    // border-bottom:1px solid #cccccc;
     box-shadow: 1px 1px 10px #f6f6f6;
     display: flex;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 20px;
     background: #ffffff;
     .headLogoImg{
-        width: 155px;
+        width: 140px;
     }
     .sortList{
-        margin-left: 120px;
+        margin-left: 80px;
         display: flex;
         .span{
             margin: 15px;
