@@ -36,7 +36,6 @@ module.exports = async (req, res) => {
             articleId: req.body.id
         }
     })
-    console.log(info_Article_Vo, 'info_Article_Voinfo_Article_Voinfo_Article_Vo');
     if (!isEmpty(info_Article_Vo) && !isEmpty(info_message_list) && !isEmpty(info_view_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             info_Article_Vo,

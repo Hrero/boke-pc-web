@@ -32,11 +32,9 @@ class Intro extends React.Component {
                 })
             }
         }
-        console.log(initialReduxState, 'initialReduxState');
     }
     render() {
         const {thumdsStatus, thumdsSum, changeNum} = this.state;
-        console.log(thumdsStatus, thumdsSum, changeNum, 'thumdsStatusthumdsStatus');
         return (
             <div className="_3Pnjry " onClick={this.handleThumdsVo}>
                 <div  className={cn('svgZan', {

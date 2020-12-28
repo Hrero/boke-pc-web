@@ -27,6 +27,7 @@ export default function Info({ slug, initialReduxState, morePosts, preview }) {
                         <LeavingMessage message_list={info_message_list?.data}/>
                     </div>
                 </div>
+
                 <InfoThumdsIcon 
                     thumdsStatus={info_Article_Vo.data.thumdsStatus} 
                     thumdsSum={info_Article_Vo.data.thumdsSum}

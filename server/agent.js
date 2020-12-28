@@ -1,5 +1,4 @@
 const request = require('./request');
-const { isEmpty } = require('zgl-utils-js');
 
 module.exports = async (req, res) => {
     const data = await request({
