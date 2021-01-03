@@ -1,5 +1,4 @@
 import VisitorList from '../../components/VisitorList';
-import LeavingMessage from '../../components/LeavingMessage';
 import PostBody from "../../components/postBody";
 import httpServer from '../../httpServer';
 import Layout from '../../components/Layout';
@@ -10,6 +9,7 @@ import httpAgent from '../../httpAgent';
 import React from 'React';
 import { allAgentInfo } from 'zgl-utils-js';
 import { BackTop } from 'antd';
+import HotArtcle from '../../components/HotArtcle';
 
 class Info extends React.Component {
     constructor(props) {
@@ -31,6 +31,15 @@ class Info extends React.Component {
             if (res.code == 0) {
                 userinfo = res.data
             }
+            httpAgent({
+                url: '/user/addUserView',
+                method: 'post',
+                params: {
+                    ip: this.state.initialReduxState.user_ip,
+                    articleId: this.state.initialReduxState.info_Article_Vo.data.id,
+                    userid: res.data.id
+                }
+            })
             this.state.comUserInfo(userinfo);  
         })
     }
@@ -44,7 +53,7 @@ class Info extends React.Component {
         }
     }
     render() {
-        const { info_Article_Vo, info_message_list, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, user_ip } = this.state.initialReduxState;
+        const { info_Article_Vo, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, user_ip, com_hot_article } = this.state.initialReduxState;
         const com_user_info = this.state.com_user_info;
         return (
             <Layout html_head_info={html_head_info}>
@@ -56,7 +65,7 @@ class Info extends React.Component {
                         </div>
                         <div className="homeRight">
                             <VisitorList view_list={info_view_list?.data}/>
-                            <LeavingMessage message_list={info_message_list?.data}/>
+                            <HotArtcle title="推荐文章" com_hot_article={com_hot_article?.data}/>
                         </div>
                     </div>
 

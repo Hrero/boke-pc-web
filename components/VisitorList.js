@@ -11,7 +11,7 @@ const VisitorList = ({view_list}) => {
                     view_list.map(mess => {
                         return (
                             <li key={mess.id} className="visitorInfo">
-                                <span>{mess.ip}</span>
+                                <span>{mess.nickname?mess.nickname: mess.ip}</span>
                                 <span>{mess.gmtCreated}</span>
                             </li>
                         )
@@ -21,7 +21,7 @@ const VisitorList = ({view_list}) => {
             <style jsx>
             {`
                 .visitorList{
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                     padding: 16px;
                 }
                 .homeRight .visitorList li{
@@ -29,6 +29,7 @@ const VisitorList = ({view_list}) => {
                 }
                 .visitorTitle{
                     font-size: 12px;
+                    font-weight: bold;
                     color: #333333;
                     margin-bottom: 10px;
                 }

@@ -37,6 +37,11 @@ module.exports = async (req, res) => {
         method: 'get',
         body: {}
     })
+    const com_hot_article = await request({
+        url: '/article/getHotArticle',
+        method: 'post',
+        body: {}
+    })
     if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             post_article_list,
@@ -44,8 +49,9 @@ module.exports = async (req, res) => {
             com_sort_list,
             com_class_list,
             post_view_list,
+            com_hot_article,
             user_ip: getClientIp(req),
-            com_label_integer: req.body.sortId,
+            com_label_integer: 1,
             html_head_info: {
                 headTitle: 'ELEVEN', 
                 headKeywords: 'js和java的博客分享', 

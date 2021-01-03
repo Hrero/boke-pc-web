@@ -106,7 +106,6 @@ class Comment extends React.Component {
     }
     render() {
         const { com_user_info, commentList, length, commlist, comChildList } = this.state;
-        console.log(com_user_info, 'com_user_info');
         return (
             <div id="note-page-comment">
                 <LocalizedModal visible={this.state.visible} user_ip={this.state.user_ip}/>

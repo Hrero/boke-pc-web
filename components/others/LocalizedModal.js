@@ -1,9 +1,8 @@
 import { Modal, Button, Form, Input } from "antd";
 import React from 'react';
 import httpAgent from '../../httpAgent';
-import { allAgentInfo } from 'zgl-utils-js';
 import { HEAD_PIC } from '../../lib/constants';
-import { mathFloor } from 'zgl-utils-js';
+import { mathFloor, allAgentInfo } from 'zgl-utils-js';
 
 
 class LocalizedModal extends React.Component {
@@ -26,8 +25,8 @@ class LocalizedModal extends React.Component {
         }
     }
     layout = {
-        labelCol: { span: 8 },
-        wrapperCol: { span: 16 },
+        labelCol: { span: 4 },
+        wrapperCol: { span: 20 },
     };
 
     validateMessages = {
@@ -94,7 +93,7 @@ class LocalizedModal extends React.Component {
                         label="邮箱" rules={[{ type: 'email' }]}>
                         <Input />
                     </Form.Item>
-                    <Form.Item wrapperCol={{ ...this.layout.wrapperCol, offset: 8 }}>
+                    <Form.Item wrapperCol={{ span: 4, offset: 20 }}>
                         <Button type="primary" htmlType="submit">
                             提交
                         </Button>

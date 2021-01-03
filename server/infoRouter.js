@@ -11,11 +11,6 @@ module.exports = async (req, res) => {
             ...req.body
         }
     })
-    const info_message_list = await request({
-        url: '/message/getMessageList',
-        method: 'get',
-        body: {}
-    })
     const info_view_list = await request({
         url: '/user/getUserView',
         method: 'post',
@@ -28,18 +23,15 @@ module.exports = async (req, res) => {
         method: 'get',
         body: {}
     })
-    request({
-        url: '/user/addUserView',
+    const com_hot_article = await request({
+        url: '/article/getHotArticle',
         method: 'post',
-        body: {
-            ip: getClientIp(req),
-            articleId: req.body.id
-        }
+        body: {}
     })
-    if (!isEmpty(info_Article_Vo) && !isEmpty(info_message_list) && !isEmpty(info_view_list) && !isEmpty(com_sort_list)) {
+    if (!isEmpty(info_Article_Vo) && !isEmpty(info_view_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             info_Article_Vo,
-            info_message_list,
+            com_hot_article,
             info_view_list,
             com_sort_list,
             user_ip: getClientIp(req),
