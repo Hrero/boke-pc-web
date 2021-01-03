@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
         url: '/article/getArticleList',
         method: 'post',
         body: {
-            sortId: req.body.sortId,
+            sortId: 15,
             ip: getClientIp(req),
             pageSize: 100,
             pageNum: 1
@@ -32,12 +32,19 @@ module.exports = async (req, res) => {
         method: 'get',
         body: {}
     })
+    const com_class_list = await request({
+        url: '/sort/getClassList',
+        method: 'get',
+        body: {}
+    })
     if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             post_article_list,
             post_message_list,
             com_sort_list,
+            com_class_list,
             post_view_list,
+            user_ip: getClientIp(req),
             com_label_integer: req.body.sortId,
             html_head_info: {
                 headTitle: 'ELEVEN', 

@@ -43,7 +43,7 @@ module.exports = async (req, res) => {
             info_view_list,
             com_sort_list,
             user_ip: getClientIp(req),
-            com_label_integer: info_Article_Vo.data.sortId,
+            com_label_integer: 1,
             html_head_info: {
                 headTitle: info_Article_Vo.data.title, 
                 headKeywords: info_Article_Vo.data.headKeywords, 

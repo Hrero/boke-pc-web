@@ -8,6 +8,8 @@ import httpAgent from '../httpAgent';
 import Layout from '../components/Layout';
 import React from 'React';
 import Header from '../components/Header';
+import styles from '../styles/post.module.scss';
+import ArticleTrees from '../components/others/ArticleTrees';
 
 class Post extends React.Component {
     constructor(props) {
@@ -23,38 +25,20 @@ class Post extends React.Component {
         })
     }
     render() {
-        const { post_article_list, post_message_list, com_sort_list, html_head_info, com_label_integer, post_view_list } = this.props.initialReduxState;
+        const { post_article_list, post_message_list, 
+            com_sort_list, html_head_info, com_label_integer, post_view_list, com_class_list, user_ip } = this.props.initialReduxState;
         return (
             <Layout html_head_info={html_head_info}>
                 <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>
-                <div className="homeWrap">
-                        <div className="homeLeft">
+                <div className={styles.homeWrap}>
+                        <div className={styles.homeLeft}>
                             <ArticleList article_list={post_article_list.data.list}/>
                         </div>
-                        <div className="homeRight">
+                        <div className={styles.homeRight}>
                             <VisitorList view_list={post_view_list?.data}/>
                             <LeavingMessage message_list={post_message_list?.data}/>
+                            <ArticleTrees com_class_list={com_class_list.data} user_ip={user_ip}/>
                         </div>
-                    <style jsx>
-                    {`
-                        .homeWrap{
-                            display: flex;
-                            max-width: 960px;
-                            width: 960px;
-                            padding: 0 15px;
-                            margin:0 auto;
-                        }
-                        .homeRight{
-                            margin-left: 4.16667%;
-                            width: 29.16667%;
-                            margin-top: 30px;
-                        }
-                        .homeLeft{
-                            width: 66.667%;
-                            padding: 20px;
-                        }
-                    `}
-                    </style>
                 </div>
             </Layout>
         );

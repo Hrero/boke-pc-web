@@ -1,31 +1,36 @@
+@import './index.scss';
+
 .header{
-    height:60px;
+    height:56px;
     box-shadow: 1px 1px 10px #f6f6f6;
     display: flex;
     align-items: center;
-    padding: 0 20px;
-    background: #ffffff;
+    margin: 0 auto;
+    background: $mainColor;
+    min-width: 1200px;
+    max-width: 1440px;
+    transition: transform .3s cubic-bezier(.645,.045,.355,1);
     .headLogoImg{
-        width: 140px;
+        width: 110px;
+        margin-left: 20px;
     }
     .sortList{
-        margin-left: 80px;
+        margin-left: 120px;
         display: flex;
         .span{
             margin: 15px;
             cursor: pointer;
-            color: #444444;
+            color: $titleColor;
             transition: all 0.1s ease-in-out;
         }
         .span:hover {
-            color: #000000;
+            color: #ffffff;
             transform: scale(1.2);
         }
         .spanShow{
             margin: 15px;
             cursor: pointer;
-            color: #000000;
-            transform: scale(1.2);
+            color: #ffffff;
         }
     }
 }

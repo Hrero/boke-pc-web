@@ -1,0 +1,21 @@
+.trees{
+    overflow: scroll;
+    // position: fixed;
+    width: 300px;
+    height: 100%;
+    z-index: 98;
+    // top: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #ffffff;
+    // left: calc((100vw - 1000px)/2 - 100px);
+}
+.visitorTitle{
+    font-size: 12px;
+    color: #333333;
+    margin-bottom: 10px;
+}

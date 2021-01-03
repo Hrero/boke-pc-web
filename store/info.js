@@ -6,7 +6,7 @@ export default {
     info_message_list: (action) => {
         return {
             default: {},
-            type: 'info_message_list',
+            type: 'infoMessageList',
             data: {
                 index_message_list: action? action.data: {}
             }
@@ -15,7 +15,7 @@ export default {
     info_view_list: (action) => {
         return {
             default: {},
-            type: 'info_view_list',
+            type: 'infoViewList',
             data: {
                 index_view_list: action? action.data: {}
             }

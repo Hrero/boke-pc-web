@@ -1,4 +1,3 @@
-import { connect } from 'react-redux'
 import Link from 'next/link';
 import imgs from '../images/images';
 import styles from '../styles/header.module.scss';
@@ -12,13 +11,12 @@ const Header = ({com_sort_list, com_label_integer}) => {
                 </Link>
             </div>
             <div className={styles.sortList}>
-                    {com_sort_list.map(show => {
-                        return (
-                            <Link key={show.value} as={`/load/${show.value}`} href={`/post?id=${show.value}&name=${show.name}`}>
-                                <div className={[ com_label_integer ===  show.value? styles.spanShow : styles.span].join('')}>{show.name}</div>
-                            </Link>
-                        );
-                    })}
+                    <Link as={`/load/1`} href={`/post?id=1&name=开发者手册`}>
+                        <div className={[ com_label_integer ===  1? styles.spanShow : styles.span].join('')}>开发者手册</div>
+                    </Link>
+                    <Link as={`/load/2`} href={`/special?id=2&name=专题`}>
+                        <div className={[ com_label_integer ===  2? styles.spanShow : styles.span].join('')}>专题</div>
+                    </Link>
             </div>
             <style jsx>
                 {`
