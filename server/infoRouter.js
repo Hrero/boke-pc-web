@@ -28,12 +28,24 @@ module.exports = async (req, res) => {
         method: 'post',
         body: {}
     })
+    const info_commentList_res = await request({url: '/message/getCommentList', method: 'post' , body: {
+        articleId: req.body.id
+    }})
+    let length = 0;
+    info_commentList_res.data && info_commentList_res.data.forEach(element => {
+        length = length + element.child.length
+    });
+    const info_commentList_list = {
+        commentList: info_commentList_res.data,
+        length: length + info_commentList_res.data.length
+    }
     if (!isEmpty(info_Article_Vo) && !isEmpty(info_view_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             info_Article_Vo,
             com_hot_article,
             info_view_list,
             com_sort_list,
+            info_commentList_list,
             user_ip: getClientIp(req),
             com_label_integer: 1,
             html_head_info: {

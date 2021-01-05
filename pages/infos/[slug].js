@@ -37,7 +37,7 @@ class Info extends React.Component {
                 params: {
                     ip: this.state.initialReduxState.user_ip,
                     articleId: this.state.initialReduxState.info_Article_Vo.data.id,
-                    userid: res.data.id
+                    userid: res?.data?.id? res.data.id: null
                 }
             })
             this.state.comUserInfo(userinfo);  
@@ -53,7 +53,7 @@ class Info extends React.Component {
         }
     }
     render() {
-        const { info_Article_Vo, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, user_ip, com_hot_article } = this.state.initialReduxState;
+        const { info_Article_Vo, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, user_ip, com_hot_article, info_commentList_list } = this.state.initialReduxState;
         const com_user_info = this.state.com_user_info;
         return (
             <Layout html_head_info={html_head_info}>
@@ -61,7 +61,7 @@ class Info extends React.Component {
                 <div className="bodyWrap">
                     <div className="homeWrap">
                         <div>
-                            <PostBody slug={this.state.slug} content={info_Article_Vo.data.html} au_in_for={au_in_for} user_ip={user_ip} com_user_info={com_user_info}/>
+                            <PostBody slug={this.state.slug} content={info_Article_Vo.data.html} au_in_for={au_in_for} info_commentList_list={info_commentList_list} user_ip={user_ip} com_user_info={com_user_info}/>
                         </div>
                         <div className="homeRight">
                             <VisitorList view_list={info_view_list?.data}/>
@@ -117,7 +117,7 @@ function mapDispatchToProps(dispatch) {
             dispatch({ type: 'comUserInfo', userinfo })
         }
     }
-  }
+}
 
 export default connect(
     mapStateToProps,

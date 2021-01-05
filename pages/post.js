@@ -16,8 +16,7 @@ import MessageIcon from '../components/others/MessageIcon';
 class Post extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+        this.state = {};
     }
     render() {
         const { post_article_list, post_message_list, 
@@ -26,15 +25,15 @@ class Post extends React.Component {
             <Layout html_head_info={html_head_info}>
                 <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>
                 <div className={styles.homeWrap}>
-                        <div className={styles.homeLeft}>
-                            <ArticleList article_list={post_article_list.data.list}/>
-                        </div>
-                        <div className={styles.homeRight}>
-                            <VisitorList view_list={post_view_list?.data}/>
-                            <HotArtcle title="热门文章" com_hot_article={com_hot_article?.data}/>
-                            <LeavingMessage message_list={post_message_list?.data}/>
-                            <ArticleTrees com_class_list={com_class_list.data} user_ip={user_ip}/>
-                        </div>
+                    <div className={styles.homeLeft}>
+                        <ArticleList article_list={post_article_list.data.list}/>
+                    </div>
+                    <div className={styles.homeRight}>
+                        <HotArtcle title="热门文章" com_hot_article={com_hot_article?.data}/>
+                        <VisitorList view_list={post_view_list?.data}/>
+                        <ArticleTrees com_class_list={com_class_list.data} user_ip={user_ip}/>
+                        <LeavingMessage message_list={post_message_list?.data}/>
+                    </div>
                 </div>
                 <MessageIcon user_ip={user_ip}/>
             </Layout>

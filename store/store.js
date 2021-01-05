@@ -11,8 +11,9 @@ const initialState = Object.keys(allState).map(key => {
     return {
         [key]: allState[key]()['default']
     }
+}).reduce((sum, cur) => {
+    return Object.assign(sum, cur, {})
 })
-
 // 这里暴露出的是创建store的工厂方法
 // 每次渲染都需要重新创建一个store实例
 // 防止服务端一直复用旧实例 无法和客户端状态同步

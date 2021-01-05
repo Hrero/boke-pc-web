@@ -40,13 +40,10 @@ class LocalizedModal extends React.Component {
         },
     };
 
-    
     onFinish = values => {
-
         this.setState({
             visible: false,
         });
-
         const params = {
             ip: this.state.user_ip,
             ...values,
@@ -54,6 +51,9 @@ class LocalizedModal extends React.Component {
             agent: allAgentInfo()
         };
         httpAgent({url: '/user/addUser', method: 'post' , params}).then(res => {
+            if (res.code === 0) {
+                this.props.callback(res.data)
+            }
             this.setState({
                 visible: false
             })

@@ -40,13 +40,11 @@ class Intro extends React.Component {
         this.setState({visible: true})
     }
     handleOk = () => {
-        console.log(2);
         setTimeout(() => {
             this.setState({visible: false})
         }, 2000);
     }
     handleCancel = () => {
-        console.log(this);
         this.setState({
             visible: false
         })

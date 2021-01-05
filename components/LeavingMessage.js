@@ -1,5 +1,4 @@
 const LeavingMessage = ({message_list}) => {
-    console.log(message_list, 'message_list');
     return (
         <div className="visitorList">
             <div className="visitorTitle"> 
@@ -10,9 +9,13 @@ const LeavingMessage = ({message_list}) => {
                     message_list.map(mess => {
                         return (
                             <li  key={mess.id}  className="visitorInfo">
-                                <span>{mess.name}</span>
-                                <span>{mess.content}</span>
-                                <span>{mess.createTime}</span>
+                                <div>
+                                    <span>{mess.name}</span>
+                                    <span>{mess.createTime}</span>
+                                </div>
+                                <div>
+                                    <span>{mess.content}</span>
+                                </div>
                             </li>
                         )
                     })
@@ -21,7 +24,7 @@ const LeavingMessage = ({message_list}) => {
             <style jsx>
                 {`
                     .visitorList{
-                        margin-bottom: 10px;
+                        // margin-bottom: 10px;
                         padding: 16px;
                         background: #ffffff;
                     }

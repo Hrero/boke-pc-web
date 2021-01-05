@@ -40,7 +40,6 @@ class MessageIcon extends React.Component {
             description:
                 '您好，我稍后会以邮件回复您',
             onClick: () => {
-                console.log('您好，我稍后会以邮件回复您');
             },
         });
     };
@@ -90,7 +89,6 @@ class MessageIcon extends React.Component {
         };
         httpAgent({url: '/user/getUserInfo', method: 'post' , params}).then(res => {
             if (res.code === 0) {
-                console.log('this.openNotification(): ', res);
                 this.setState({
                     name: res.data.nickname,
                     email: res.data.email

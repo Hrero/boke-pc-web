@@ -22,7 +22,7 @@ const HotArtcle = ({com_hot_article, title}) => {
             <style jsx>
                 {`
                     .visitorList{
-                        margin-bottom: 10px;
+                        // margin-bottom: 10px;
                         padding: 16px;
                         background: #ffffff;
                     }

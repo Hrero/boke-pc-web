@@ -21,7 +21,7 @@ const VisitorList = ({view_list}) => {
             <style jsx>
             {`
                 .visitorList{
-                    margin-bottom: 10px;
+                    // margin-bottom: 10px;
                     padding: 16px;
                 }
                 .homeRight .visitorList li{

@@ -20,5 +20,17 @@ export default {
                 index_view_list: action? action.data: {}
             }
         }
+    },
+    info_commentList_list: (action) => {
+        return {
+            default: {
+                commentList: [],
+                length: 0
+            },
+            type: 'infoCommentListList',
+            data: {
+                info_commentList_list: action? action.commentList: {}
+            }
+        }
     }
 }

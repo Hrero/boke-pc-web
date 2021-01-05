@@ -61,7 +61,6 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
     };
     
     function onExpand() {
-        console.log('Trigger Expand');
     };
     function onLoadData({ key, children }) {
         return new Promise((resolve) => {
