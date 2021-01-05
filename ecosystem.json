@@ -1,7 +1,7 @@
 {
     "apps": [{
         "name": "boke-pc-web",
-        "script": "dist/nest/main.js",
+        "script": "server.js",
         "node_args": "--harmony"
     }],
     "deploy": {
