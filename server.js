@@ -30,7 +30,6 @@ app.prepare()
         server.get('*', (req, res) => {
             return handle(req, res);
         });
-
         server.listen(7000, (err) => {
             if (err) throw err;
             console.log('> Ready on http://127.0.0.1:7000');
