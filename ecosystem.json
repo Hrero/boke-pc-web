@@ -1,7 +1,7 @@
 {
     "apps": [{
         "name": "boke-pc-web",
-        "script": "server.js",
+        "script": "./server.js",
         "node_args": "--harmony"
     }],
     "deploy": {
@@ -11,7 +11,7 @@
             "ref": "origin/master",
             "repo": "git@github.com:Hrero/boke-pc-web.git",
             "path": "/home/node-service/boke-pc-web",
-            "post-deploy": "cd /home/node-service/boke-pc-web/source && git pull && pwd && node -v && npm install --production && pm2 startOrRestart ecosystem.json",
+            "post-deploy": "cd /home/node-service/boke-pc-web/source && git pull && pwd && node -v && npm install --production && npm run build && pm2 startOrRestart ecosystem.json",
             "env": {
                 "NODE_ENV": "production"
             }
