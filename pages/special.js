@@ -5,7 +5,7 @@ import styles from '../styles/special.module.scss';
 import initializeStore from '../store/store';
 import httpServer from '../httpServer';
 import httpAgent from '../httpAgent';
-import React from 'React';
+import React from 'react';
 
 class Special extends React.Component {
     constructor(props) {

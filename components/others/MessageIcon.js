@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import styles from '../../styles/MessageIcon.module.scss';
 import { Modal, Button, Form, Input, notification } from "antd";
 import { HEAD_PIC } from '../../lib/constants';

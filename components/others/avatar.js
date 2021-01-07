@@ -1,6 +1,6 @@
 import { dateFormat } from 'zgl-utils-js';
 import { connect } from 'react-redux';
-import React from 'React';
+import React from 'react';
 class Avatar extends React.Component {
     constructor(props) {
         super(props)

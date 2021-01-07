@@ -2,7 +2,7 @@
 import Avatar from '../components/others/avatar';
 import Comment from '../components/Comment';
 import httpAgent from '../httpAgent';
-import React from 'React';
+import React from 'react';
 
 export default class PostBody extends React.Component {
     constructor(props) {

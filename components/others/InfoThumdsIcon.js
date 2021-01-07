@@ -1,6 +1,6 @@
 import httpAgent from '../../httpAgent';
 import cn from 'classnames';
-import React from 'React';
+import React from 'react';
 import {Modal} from 'antd';
 import { PAY_CODE } from '../../lib/constants';
 import styles from '../../styles/InfoThumdsIcon.module.scss';

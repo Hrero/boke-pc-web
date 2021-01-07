@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import InfoThumdsIcon from '../../components/others/InfoThumdsIcon';
 import { connect } from 'react-redux';
 import httpAgent from '../../httpAgent';
-import React from 'React';
+import React from 'react';
 import { allAgentInfo } from 'zgl-utils-js';
 import { BackTop } from 'antd';
 import HotArtcle from '../../components/HotArtcle';

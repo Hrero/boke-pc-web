@@ -16,6 +16,7 @@ module.exports = ({url, method, body}) => {
         if (method === 'post') {
             requstServer = body;
         }
+        console.log(config.serverUrl + url, 'config.serverUrl>>>>>>>>>>');
         axios[method](config.serverUrl + url, requstServer).then(response => {
             r(response.data)
         }).catch(error => {

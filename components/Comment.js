@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { isEmpty } from 'zgl-utils-js';
 import httpAgent from '../httpAgent';

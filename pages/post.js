@@ -6,7 +6,7 @@ import initializeStore from '../store/store';
 import httpServer from '../httpServer';
 import httpAgent from '../httpAgent';
 import Layout from '../components/Layout';
-import React from 'React';
+import React from 'react';
 import Header from '../components/Header';
 import styles from '../styles/post.module.scss';
 import ArticleTrees from '../components/others/ArticleTrees';
