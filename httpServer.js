@@ -1,5 +1,6 @@
+
 export default async ({ url, method, params }) => {
-    const res = await fetch("http://127.0.0.1:7000" + url, {
+    const res = await fetch(process.env.requestUrl + url, {
         headers: {
         "content-type": "application/json",
         "api-url": url,
@@ -10,3 +11,4 @@ export default async ({ url, method, params }) => {
     });
     return await res.json();
 };
+

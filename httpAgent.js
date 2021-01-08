@@ -1,7 +1,7 @@
 const httpAgent = async ({
     url, method, params
 }) => {
-    const res = await fetch('http://127.0.0.1:7000/api/agent', {
+    const res = await fetch(process.env.requestUrl + '/api/agent', {
         headers: {
           'content-type': 'application/json',
           'api-url': url,
