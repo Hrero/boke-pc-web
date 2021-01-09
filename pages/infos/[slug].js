@@ -55,6 +55,7 @@ class Info extends React.Component {
     render() {
         const { info_Article_Vo, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, user_ip, com_hot_article, info_commentList_list } = this.state.initialReduxState;
         const com_user_info = this.state.com_user_info;
+
         return (
             <Layout html_head_info={html_head_info}>
                 <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>

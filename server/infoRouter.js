@@ -78,5 +78,6 @@ function getClientIp(req) {
     if (!ipAddress) {
         ipAddress = req.connection.remoteAddress;
     }
+    console.log(req.connection.remoteAddress, ipAddress, forwardedIpsStr,'=======ip====');
     return ipAddress.split(':ffff:')[1];
 };
