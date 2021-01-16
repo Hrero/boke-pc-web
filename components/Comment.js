@@ -20,7 +20,7 @@ class Comment extends React.Component {
             userid: '',
             com_user_info: {},
             commentList: this.props.commentList,
-            headPicture: '',
+            headPicture: this.props.com_user_info.headPicture,
             length: this.props.length,
             nickname: '',
             commlist: [],
@@ -118,13 +118,15 @@ class Comment extends React.Component {
     }
     render() {
         const { com_user_info, commentList, length, commlist, comChildList } = this.state;
+        const { headPicture} = com_user_info;
+        console.log(com_user_info, 'com_user_info');
         return (
             <div id="note-page-comment">
                 <LocalizedModal callback={this.callback.bind(this)} visible={this.state.visible} user_ip={this.state.user_ip}/>
                 <section className={styles.ouvJEz}>
                     <div className={styles._26JdYM}>
-                        <img className={styles._3LHFA} 
-                        src={this.state.headPicture?this.state.headPicture:'https://upload.jianshu.io/users/upload_avatars/25124160/9f030a41-c698-4d43-a999-ff9a8cc3c6e6?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp'} alt="" />
+                        <img className={styles._3LHFA}
+                        src={headPicture?headPicture:'https://upload.jianshu.io/users/upload_avatars/25124160/9f030a41-c698-4d43-a999-ff9a8cc3c6e6?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp'} alt="" />
                         <div className={styles._3GKFE3}>
                             <Form onFinish={this.handleSubmit}>
                                 <div className={styles.heightNone}>

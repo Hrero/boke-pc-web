@@ -5,6 +5,7 @@ console.log(dev, 'dev=======>>>');
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const apiAgent = require('./server/agent');
+const comAgent = require('./server/com');
 const indexRouter = require('./server/indexRouter');
 const postRouter = require('./server/postRouter');
 const infoRouter = require('./server/infoRouter');
@@ -19,6 +20,8 @@ app.prepare()
         server.use(bodyParser.urlencoded({ extended: false }));
 
         server.use('/load', require('./server/loadRouter')(app));
+
+        server.post('/api/com', comAgent);
 
         server.post('/api/agent', apiAgent);
 

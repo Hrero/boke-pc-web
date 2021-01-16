@@ -18,30 +18,38 @@ class Info extends React.Component {
             initialReduxState: this.props.initialReduxState,
             slug: this.props.slug,
             com_user_info: this.props.com_user_info,
-            comUserInfo: this.props.comUserInfo
+            comUserInfo: this.props.comUserInfo,
+            user_ip: ''
         }
     }
     componentDidMount() {
-        const params = {
-            ip: this.state.initialReduxState.user_ip,
-            agent: allAgentInfo()
-        }
-        httpAgent({url: '/user/getUserInfo', method: 'post' , params}).then(res => {
-            let userinfo = {}
-            if (res.code == 0) {
-                userinfo = res.data
-            }
-            httpAgent({
-                url: '/user/addUserView',
-                method: 'post',
-                params: {
+        // httpServer({url: '/api/com', method: 'post' , params: {}}).then(item => {
+        //     this.setState({
+        //         user_ip: item.data.user_ip
+        //     }, () => {
+                const params = {
                     ip: this.state.initialReduxState.user_ip,
-                    articleId: this.state.initialReduxState.info_Article_Vo.data.id,
-                    userid: res?.data?.id? res.data.id: null
+                    agent: allAgentInfo()
                 }
-            })
-            this.state.comUserInfo(userinfo);  
-        })
+                httpAgent({url: '/user/getUserInfo', method: 'post' , params}).then(res => {
+                    let userinfo = {}
+                    if (res.code == 0) {
+                        userinfo = res.data;
+                    }
+                    httpAgent({
+                        url: '/user/addUserView',
+                        method: 'post',
+                        params: {
+                            ip: this.state.initialReduxState.user_ip,
+                            articleId: this.state.initialReduxState.info_Article_Vo.data.id,
+                            userid: res?.data?.id? res.data.id: null
+                        }
+                    })
+                    this.state.comUserInfo(userinfo);
+                })
+        //     })
+        // })
+
     }
     
     componentWillReceiveProps(nextProps) {

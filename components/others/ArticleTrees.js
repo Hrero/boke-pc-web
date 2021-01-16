@@ -14,17 +14,18 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
          if (item.isLeaf) {
              return {
                  title: item.name,
-                 key: item.value
+                 key: item.value + '_file'
              }
          } else {
              return {
                  title: item.name,
-                 key: item.value,
+                 key: item.value + '_file',
                  children: getItemChild(item.children)
              }
          }
     })
     const [treeData, setTreeData] = useState(com_classList)
+    console.log(treeData, '=wwww');
     const router = useRouter()
 
     function getItemChild(item) {
@@ -32,12 +33,12 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
             if (child.isLeaf) {
                 return {
                     title: child.name,
-                    key: child.value
+                    key: child.value + '_file'
                 }
             } else {
                 return {
                     title: child.name,
-                    key: child.value,
+                    key: child.value + '_file',
                     children: getItemChild(child.children)
                 }
             }
@@ -45,16 +46,16 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
     }
     function updateTreeData (list, key, children) {
         return list.map((node) => {
-          if (node.key === key) {
-            return { ...node, children };
-          } else if (node.children) {
-            return { ...node, children: updateTreeData(node.children, key, children) };
-          }
-      
-          return node;
+            if (node.key === key) {
+                return { ...node, children };
+            } else if (node.children) {
+                return { ...node, children: updateTreeData(node.children, key, children) };
+            }
+            return node;
         });
     }
     function onSelect(keys, event) {
+        console.log(keys, '===');
         if (keys) {
             router.push('/infos/' + keys[0])
         }
@@ -69,7 +70,7 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
                 return;
             }
             const params = {
-                articleId: key, // 文章id
+                sortId: key.split('_')[0], // 文章id
                 ip: user_ip
             }
             httpAgent({url: '/article/getArticleList', method: 'post' , params}).then(res => {
@@ -77,7 +78,7 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
                     setTreeData((origin) =>
                         updateTreeData(origin, key, res.data.list.map(item => ({
                             title: item.title,
-                            key: item.id,
+                            key: item.id?item.id:null,
                             isLeaf: true
                         })))
                     );
@@ -87,7 +88,6 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
         });
     }
 
-     
     return (
         <div className={styles.trees}>
             <div className={styles.visitorTitle}> 

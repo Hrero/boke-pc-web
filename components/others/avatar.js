@@ -36,6 +36,7 @@ class Avatar extends React.Component {
                                 font-size: 16px;
                                 font-weight: 500;
                                 margin-right: 8px;
+                                margin-bottom: 5px;
                             }
                             .avatarWrap{
                                 display: flex;

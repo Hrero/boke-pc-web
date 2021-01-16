@@ -6,7 +6,9 @@ import initializeStore from '../store/store';
 import httpServer from '../httpServer';
 import httpAgent from '../httpAgent';
 import React from 'react';
-
+import { Card, Avatar } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+const { Meta } = Card;
 class Special extends React.Component {
     constructor(props) {
         super(props);
@@ -27,11 +29,71 @@ class Special extends React.Component {
             <Layout html_head_info={html_head_info}>
                 <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>
                 <div className={styles.homeWrap}>
-                    <div className={styles.homeLeft}>
-                        正在搞。。。
+                    <div className={styles.homeContent}>
+                        <Card
+                            style={{ width: 300 }}
+                            cover={
+                            <img
+                                alt="example"
+                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                            />
+                            }
+                            actions={[
+                            <SettingOutlined key="setting" />,
+                            <EditOutlined key="edit" />,
+                            <EllipsisOutlined key="ellipsis" />,
+                            ]}
+                        >
+                            <Meta
+                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                            title="Card title"
+                            description="This is the description"
+                            />
+                        </Card>
                     </div>
-                    <div className={styles.homeRight}>
-                        正在搞。。。
+                    <div className={styles.homeContent}>
+                        <Card
+                            style={{ width: 300 }}
+                            cover={
+                            <img
+                                alt="example"
+                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                            />
+                            }
+                            actions={[
+                            <SettingOutlined key="setting" />,
+                            <EditOutlined key="edit" />,
+                            <EllipsisOutlined key="ellipsis" />,
+                            ]}
+                        >
+                            <Meta
+                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                            title="Card title"
+                            description="This is the description"
+                            />
+                        </Card>
+                    </div>
+                    <div className={styles.homeContent}>
+                        <Card
+                            style={{ width: 300 }}
+                            cover={
+                            <img
+                                alt="example"
+                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                            />
+                            }
+                            actions={[
+                            <SettingOutlined key="setting" />,
+                            <EditOutlined key="edit" />,
+                            <EllipsisOutlined key="ellipsis" />,
+                            ]}
+                        >
+                            <Meta
+                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                            title="Card title"
+                            description="This is the description"
+                            />
+                        </Card>
                     </div>
                 </div>
             </Layout>

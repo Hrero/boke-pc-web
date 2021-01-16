@@ -15,13 +15,15 @@ export default function Meta({html_head_info}) {
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon/favicon-32x32.png"
+        // href="/favicon/favicon-32x32.png"
+        href="/favicon/favicon_32px.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon/favicon-16x16.png"
+        // href="/favicon/favicon-16x16.png"
+        href="/favicon/favicon_16px.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link
@@ -29,7 +31,7 @@ export default function Meta({html_head_info}) {
         href="/favicon/safari-pinned-tab.svg"
         color="#000000"
       />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon/favicon_48px.ico" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />

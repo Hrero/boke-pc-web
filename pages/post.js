@@ -7,6 +7,7 @@ import httpServer from '../httpServer';
 import httpAgent from '../httpAgent';
 import Layout from '../components/Layout';
 import React from 'react';
+import { BackTop } from 'antd';
 import Header from '../components/Header';
 import styles from '../styles/post.module.scss';
 import ArticleTrees from '../components/others/ArticleTrees';
@@ -16,11 +17,21 @@ import MessageIcon from '../components/others/MessageIcon';
 class Post extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            // user_ip: ''
+        };
+    }
+    componentDidMount() {
+        // httpServer({url: '/api/com', method: 'post' , params: {}}).then(item => {
+        //     this.setState({
+        //         user_ip: item.data.user_ip
+        //     })
+        // })
     }
     render() {
         const { post_article_list, post_message_list, 
-            com_sort_list, html_head_info, com_label_integer, post_view_list, com_class_list, user_ip, com_hot_article } = this.props.initialReduxState;
+            com_sort_list, html_head_info, com_label_integer, post_view_list, com_class_list, com_hot_article, user_ip } = this.props.initialReduxState;
+            // const { user_ip } = this.state;
             return (
             <Layout html_head_info={html_head_info}>
                 <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>
@@ -36,6 +47,10 @@ class Post extends React.Component {
                     </div>
                 </div>
                 <MessageIcon user_ip={user_ip}/>
+                <BackTop>
+                    <div><svg t="1609515943321" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" width="40" height="40"><path d="M450 226c37.16-33.787 94.508-31.666 129 5l319 344c8.957 9.352 14 22.087 14 35 0 29.03-23.404 52.012-52 52H733a8 8 0 0 0-8 8v150c0 70.692-57.308 128-128 128H427c-70.692 0-128-57.308-128-128V670a8 8 0 0 0-8-8H164c-13.106 0.012-25.431-4.704-35-13v-1c-21.566-19.037-22.505-51.627-3-73l318-343c1.757-1.842 3.36-3.467 5-5zM840 77c17.47 0 32 14.55 32 33 0 17.45-14.53 32-32 32H185c-18.47 0-33-14.55-33-32 0-18.45 14.53-33 33-33z" fill="#222238" p-id="4563"></path></svg>
+                    </div>
+                </BackTop>
             </Layout>
         );
     }
