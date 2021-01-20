@@ -42,6 +42,7 @@ module.exports = async (req, res) => {
         method: 'post',
         body: {}
     })
+    console.log(com_class_list, 'getClassListgetClassList');
     if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             post_article_list,
