@@ -6,7 +6,7 @@ module.exports = {
         includePaths: [path.join(__dirname, 'styles')],
     },
     env: {
-        requestUrl: isProd ? 'http://121.196.178.118:7000' : 'http://127.0.0.1:7000' // 环境变量
+        requestUrl: isProd ? 'http://haozengrun.com' : 'http://127.0.0.1:7000' // 环境变量
     }
 }
 

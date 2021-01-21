@@ -25,7 +25,6 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
          }
     })
     const [treeData, setTreeData] = useState(com_classList)
-    console.log(treeData, '=wwww');
     const router = useRouter()
 
     function getItemChild(item) {
@@ -55,7 +54,6 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
         });
     }
     function onSelect(keys, event) {
-        console.log(keys, '===');
         if (keys) {
             router.push('/infos/' + keys[0])
         }
