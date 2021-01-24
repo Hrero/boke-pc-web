@@ -13,26 +13,16 @@ class MessageIcon extends React.Component {
             thumdsStatus: this.props.thumdsStatus,
             thumdsSum: this.props.thumdsSum,
             articleId: this.props.articleId,
-            ip: this.props.user_ip,
-            name: '',
+            nickname: '',
             email: '',
+            userid: '',
+            phone: '',
             changeNum: 0
         };
     }
     layout = {
         labelCol: { span: 4 },
         wrapperCol: { span: 20 },
-    };
-
-    validateMessages = {
-        required: '${label} is required!',
-        types: {
-          email: '${label} is not a valid email!',
-          number: '${label} is not a valid number!',
-        },
-        number: {
-          range: '${label} must be between ${min} and ${max}',
-        },
     };
     openNotification = () => {
         notification.open({
@@ -47,20 +37,28 @@ class MessageIcon extends React.Component {
         this.setState({
             visible: false,
         });
-        if (this.state.name) {
-            values.name =  this.state.name
+        if (this.state.nickname) {
+            values.nickname =  this.state.nickname
         }
         if (this.state.email) {
             values.email =  this.state.email
         }
+        if (this.state.phone) {
+            values.phone =  this.state.phone
+        }
         const params = {
-            ip: this.state.ip,
+            userid: this.state.userid,
             ...values,
             headPicture: HEAD_PIC[mathFloor(5, 0)],
             agent: allAgentInfo()
         };
         httpAgent({url: '/message/addMessage', method: 'post' , params}).then(res => {
             if (res.code === 0) {
+                window.localStorage.setItem('nickname', res.data.nickname)
+                window.localStorage.setItem('userid', res.data.id)
+                window.localStorage.setItem('email', res.data.email)
+                window.localStorage.setItem('phone', res.data.phone)
+                window.localStorage.setItem('headPicture', res.data.headPicture)
                 this.openNotification()
             }
             this.setState({
@@ -83,21 +81,15 @@ class MessageIcon extends React.Component {
     }
     
     componentDidMount() {
-        const params = {
-            ip: this.state.ip,
-            agent: allAgentInfo()
-        };
-        httpAgent({url: '/user/getUserInfo', method: 'post' , params}).then(res => {
-            if (res.code === 0) {
-                this.setState({
-                    name: res.data.nickname,
-                    email: res.data.email
-                })
-            }
+        this.setState({
+            nickname: window.localStorage.getItem('nickname'),
+            email: window.localStorage.getItem('email'),
+            phone: window.localStorage.getItem('phone'),
+            userid: window.localStorage.getItem('userid')
         })
     }
     render() {
-        const {visible, name, email} = this.state;
+        const {visible, nickname, email, phone} = this.state;
         return (
             <div className={styles._3Pnjry}>
                 <div className={styles._1pUUKr} >
@@ -122,18 +114,18 @@ class MessageIcon extends React.Component {
                     cancelText="取消"
                 >
                     {
-                        name && email?
+                        nickname && email?
                         <div className={styles.wrapImg}>
                             <Form 
 
                             className={styles.formwrap}
-                            {...this.layout} name="nest-messages" onFinish={this.onFinish} validateMessages={this.validateMessages}>
+                            {...this.layout} name="nest-messages" onFinish={this.onFinish} >
                                 <Form.Item 
-                                    name="name" 
+                                    name="nickname" 
                                     label="昵称">
                                     <Input 
-                                    disabled={name}
-                                    defaultValue={name}/>
+                                    disabled={nickname}
+                                    defaultValue={nickname}/>
                                 </Form.Item>
                                 <Form.Item 
                                     name="email" 
@@ -141,6 +133,13 @@ class MessageIcon extends React.Component {
                                     <Input 
                                     disabled={email}
                                     defaultValue={email}/>
+                                </Form.Item>
+                                <Form.Item 
+                                    name="phone" 
+                                    label="手机">
+                                    <Input 
+                                    disabled={phone}
+                                    defaultValue={phone}/>
                                 </Form.Item>
                                 <Form.Item 
                                     name="content" 
@@ -156,13 +155,13 @@ class MessageIcon extends React.Component {
                             </Form>
                         </div>: 
                         <div className={styles.wrapImg}>
-                            <Form {...this.layout} name="nest-messages" onFinish={this.onFinish} validateMessages={this.validateMessages}>
+                            <Form {...this.layout} name="nest-messages" onFinish={this.onFinish} >
                                 <Form.Item 
-                                    name="name" 
+                                    name="nickname" 
                                     label="昵称" rules={[{ required: true }]}>
                                     <Input 
-                                    disabled={name}
-                                    defaultValue={name}/>
+                                    disabled={nickname}
+                                    defaultValue={nickname}/>
                                 </Form.Item>
                                 <Form.Item 
                                     name="email" 
@@ -170,6 +169,13 @@ class MessageIcon extends React.Component {
                                     <Input 
                                     disabled={email}
                                     defaultValue={email}/>
+                                </Form.Item>
+                                <Form.Item 
+                                    name="phone" 
+                                    label="手机">
+                                    <Input 
+                                    disabled={phone}
+                                    defaultValue={phone}/>
                                 </Form.Item>
                                 <Form.Item 
                                     name="content" 

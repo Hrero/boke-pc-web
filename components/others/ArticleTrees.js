@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 
 const { DirectoryTree } = Tree;
 
-export default function ArticleTrees ({com_class_list, user_ip}) {
+export default function ArticleTrees ({com_class_list}) {
 
     const  com_classList = !isEmpty(com_class_list) && com_class_list.map(item => {
          if (item.isLeaf) {
@@ -69,7 +69,7 @@ export default function ArticleTrees ({com_class_list, user_ip}) {
             }
             const params = {
                 sortId: key.split('_')[0], // 文章id
-                ip: user_ip
+                userid: window.localStorage.getItem("userid")
             }
             httpAgent({url: '/article/getArticleList', method: 'post' , params}).then(res => {
                 if (res.code == 0) {

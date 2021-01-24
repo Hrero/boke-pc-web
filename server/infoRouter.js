@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
         url: '/article/getArticleInfo',
         method: 'post',
         body: {
-            ip: getClientIp(req),
             ...req.body
         }
     })
@@ -46,7 +45,6 @@ module.exports = async (req, res) => {
             info_view_list,
             com_sort_list,
             info_commentList_list,
-            user_ip: getClientIp(req),
             com_label_integer: 1,
             html_head_info: {
                 headTitle: info_Article_Vo.data.title, 
@@ -67,17 +65,3 @@ module.exports = async (req, res) => {
         res.send(Response.sendError())
     }
 }
-
-function getClientIp(req) {
-    var ipAddress;
-    var forwardedIpsStr = req.header('x-forwarded-for'); 
-    if (forwardedIpsStr) {
-        var forwardedIps = forwardedIpsStr.split(',');
-        ipAddress = forwardedIps[0];
-    }
-    if (!ipAddress) {
-        ipAddress = req.connection.remoteAddress;
-    }
-    console.log(req.connection.remoteAddress, ipAddress, forwardedIpsStr,'=======ip====');
-    return ipAddress.split(':ffff:')[1];
-};

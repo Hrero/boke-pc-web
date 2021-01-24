@@ -9,17 +9,16 @@ class Intro extends React.Component {
         super(props);
         this.state = {
             visible: false,
-            thumdsStatus: this.props.thumdsStatus,
+            thumdsStatus: false,
             thumdsSum: this.props.thumdsSum,
             articleId: this.props.articleId,
-            ip: this.props.ip,
             changeNum: 0
         };
     }
     handleThumdsVo = async () => {
         const initialReduxState = await httpAgent({url: '/article/addThumbsArticle', method: 'post' , params: {
             articleId: this.state.articleId,
-            ip: this.state.ip,
+            userid: window.localStorage.getItem("userid"),
             status: this.state.thumdsStatus === 1?0:1
         }})
         if (initialReduxState.code === 0) {
@@ -49,6 +48,17 @@ class Intro extends React.Component {
             visible: false
         })
     }
+    componentDidMount() {
+        httpAgent({url: '/message/getCommentThumds', method: 'post' , params: {
+            articleId: this.state.articleId,
+            userid: window.localStorage.getItem("userid")
+        }}).then(res => {
+            this.setState({
+                thumdsStatus: res.data.thumdsStatus
+            })
+        })
+    }
+
     render() {
         const {thumdsStatus, thumdsSum, visible} = this.state;
         return (

@@ -9,12 +9,10 @@ class LocalizedModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            visible: this.props.visible,
-            user_ip: this.props.user_ip
+            visible: this.props.visible
         }
     }
     componentWillReceiveProps(nextProps) {
-        
         const { visible } = this.state;
         const newdata = nextProps.visible.toString();
         if (visible.toString() !== newdata) {
@@ -29,23 +27,12 @@ class LocalizedModal extends React.Component {
         wrapperCol: { span: 20 },
     };
 
-    validateMessages = {
-        required: '${label} is required!',
-        types: {
-          email: '${label} is not a valid email!',
-          number: '${label} is not a valid number!',
-        },
-        number: {
-          range: '${label} must be between ${min} and ${max}',
-        },
-    };
-
     onFinish = values => {
         this.setState({
             visible: false,
         });
         const params = {
-            ip: this.state.user_ip,
+            userid: window.localStorage.getItem("userid"),
             ...values,
             headPicture: HEAD_PIC[mathFloor(5, 0)],
             agent: allAgentInfo()
@@ -53,6 +40,12 @@ class LocalizedModal extends React.Component {
         httpAgent({url: '/user/addUser', method: 'post' , params}).then(res => {
             if (res.code === 0) {
                 this.props.callback(res.data)
+                window.localStorage.setItem('nickname', res.data.nickname)
+                window.localStorage.setItem('userid', res.data.id)
+                window.localStorage.setItem('email', res.data.email)
+                window.localStorage.setItem('phone', res.data.phone)
+                window.localStorage.setItem('userid', res.data.id)
+                window.localStorage.setItem('headPicture', res.data.headPicture)
             }
             this.setState({
                 visible: false
@@ -82,15 +75,20 @@ class LocalizedModal extends React.Component {
                 okText="确认"
                 cancelText="取消"
             >
-                <Form {...this.layout} name="nest-messages" onFinish={this.onFinish} validateMessages={this.validateMessages}>
+                <Form {...this.layout} name="nest-messages" onFinish={this.onFinish} >
                     <Form.Item 
                         name="nickname" 
-                        label="昵称" rules={[{ required: true }]}>
+                        label="昵称：" rules={[{ required: true }]}>
                         <Input />
                     </Form.Item>
                     <Form.Item 
                         name="email" 
                         label="邮箱" rules={[{ type: 'email' }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item 
+                        name="phone" 
+                        label="手机" rules={[{ required: true }]}>
                         <Input />
                     </Form.Item>
                     <Form.Item wrapperCol={{ span: 4, offset: 20 }}>

@@ -15,7 +15,6 @@ module.exports = async (req, res) => {
         method: 'post',
         body: {}
     })
-    
     if (!isEmpty(index_message_list) && !isEmpty(index_view_list)) {
         res.send(Response.sendSuccess({
             index_message_list,

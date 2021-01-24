@@ -10,7 +10,7 @@ const LeavingMessage = ({message_list}) => {
                         return (
                             <li  key={mess.id}  className="visitorInfo">
                                 <div>
-                                    <span>{mess.name}</span>
+                                    <span>{mess.nickname}</span>
                                     <span>{mess.createTime}</span>
                                 </div>
                                 <div>

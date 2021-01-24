@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
         method: 'post',
         body: {
             sortId: 15,
-            ip: getClientIp(req),
+            userid: req.body.userid,
             pageSize: 100,
             pageNum: 1
         }
@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
         method: 'post',
         body: {}
     })
-    console.log(com_class_list, 'getClassListgetClassList');
+
     if (!isEmpty(post_article_list) && !isEmpty(post_message_list) && !isEmpty(com_sort_list)) {
         res.send(Response.sendSuccess({
             post_article_list,
@@ -51,7 +51,6 @@ module.exports = async (req, res) => {
             com_class_list,
             post_view_list,
             com_hot_article,
-            user_ip: getClientIp(req),
             com_label_integer: 1,
             html_head_info: {
                 headTitle: 'ELEVEN', 
@@ -64,17 +63,4 @@ module.exports = async (req, res) => {
         res.send(Response.sendError())
     }
 }
-
-function getClientIp(req) {
-    var ipAddress;
-    var forwardedIpsStr = req.header('x-forwarded-for'); 
-    if (forwardedIpsStr) {
-        var forwardedIps = forwardedIpsStr.split(',');
-        ipAddress = forwardedIps[0];
-    }
-    if (!ipAddress) {
-        ipAddress = req.connection.remoteAddress;
-    }
-    return ipAddress.split(':ffff:')[1];
-};
 

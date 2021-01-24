@@ -11,7 +11,7 @@ export default class PostBody extends React.Component {
         }
     }
     render() {
-        const { au_in_for, content, user_ip, com_user_info, slug, info_commentList_list } = this.props;
+        const { au_in_for, content, slug, info_commentList_list } = this.props;
         const { title } = au_in_for;
         return (
             <div>
@@ -23,7 +23,7 @@ export default class PostBody extends React.Component {
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
                 </div>
-                <Comment slug={slug} user_ip={user_ip} com_user_info={com_user_info}/>
+                <Comment slug={slug} />
                 <style jsx>
                     {
                         `

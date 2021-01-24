@@ -5,6 +5,7 @@ import httpAgent from '../httpAgent';
 import cn from 'classnames';
 import styles from '../styles/comment.module.scss';
 import { connect } from 'react-redux';
+import userIsLogin from '../lib/userIsLogin';
 
 
 const { TextArea } = Input;
@@ -15,14 +16,12 @@ class Comment extends React.Component {
         this.state = {
             isUser: false,
             visible: false,
-            user_ip: this.props.user_ip,
             content: '',
-            userid: '',
-            com_user_info: {},
             commentList: this.props.commentList,
-            headPicture: this.props.com_user_info.headPicture,
             length: this.props.length,
             nickname: '',
+            headPicture: "",
+            userid: '',
             commlist: [],
             comChildList: [],
             oneIndex: null
@@ -41,7 +40,7 @@ class Comment extends React.Component {
         }
         const params = {
             articleId: this.articleId, // 文章id
-            userid: this.state.com_user_info.id?this.state.com_user_info.id:this.state.userid?this.state.userid: '', // 评论人id
+            userid: this.state.userid? this.state.userid: '', // 评论人id
             parentCommentId, // 父评论id
             parentCommentUserId, // 父级评论的userid
             replyCommentId, // 被回复的userid
@@ -94,6 +93,12 @@ class Comment extends React.Component {
     }
     componentDidMount() {
         this.getCommentList()
+        this.setState({
+            userid: window.localStorage.getItem("userid"),
+            headPicture: window.localStorage.getItem("headPicture"),
+            nickname: window.localStorage.getItem("nickname"),
+            isUser: userIsLogin()
+        })
     }
     callback = (data) => {
         this.setState({
@@ -103,30 +108,17 @@ class Comment extends React.Component {
             headPicture: data.headPicture
         })
     }
-    componentWillReceiveProps(nextProps) {
-        const { com_user_info } = this.state;
-        if (JSON.stringify(nextProps.com_user_info) != JSON.stringify(com_user_info)) {
-            this.setState({
-                com_user_info: nextProps.com_user_info
-            })
-            if (!isEmpty(nextProps.com_user_info)) {
-                this.setState({
-                    isUser: true
-                })
-            }
-        }
-    }
     render() {
-        const { com_user_info, commentList, length, commlist, comChildList } = this.state;
-        const { headPicture} = com_user_info;
-        console.log(com_user_info, 'com_user_info');
+        const { commentList, length, commlist, comChildList } = this.state;
+        const headPicture = this.state.headPicture;
+        const nickname = this.state.nickname;
         return (
             <div id="note-page-comment">
-                <LocalizedModal callback={this.callback.bind(this)} visible={this.state.visible} user_ip={this.state.user_ip}/>
+                <LocalizedModal callback={this.callback.bind(this)} visible={this.state.visible} />
                 <section className={styles.ouvJEz}>
                     <div className={styles._26JdYM}>
                         <img className={styles._3LHFA}
-                        src={headPicture?headPicture:'https://upload.jianshu.io/users/upload_avatars/25124160/9f030a41-c698-4d43-a999-ff9a8cc3c6e6?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp'} alt="" />
+                        src={headPicture? headPicture: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=393043257,3324787331&fm=26&gp=0.jpg'} alt="" />
                         <div className={styles._3GKFE3}>
                             <Form onFinish={this.handleSubmit}>
                                 <div className={styles.heightNone}>
@@ -169,7 +161,7 @@ class Comment extends React.Component {
                                 <div>
                                     <div className={styles._3IXP9Q}>
                                         <div className={styles.SKZUyR}>
-                                        {com_user_info?.nickname?com_user_info?.nickname: this.state.nickname?this.state.nickname: ''}
+                                        {nickname? nickname: ''}
                                         </div>
                                         <div className={styles._3Tp4of}>
                                             <button type="submit" disabled="" className={cn(styles._1OyPqC, styles.fabuss)}><span>发布</span></button>

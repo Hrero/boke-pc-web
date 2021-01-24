@@ -11,7 +11,7 @@ const VisitorList = ({view_list}) => {
                     view_list.map(mess => {
                         return (
                             <li key={mess.id} className="visitorInfo">
-                                <span>{mess.nickname?mess.nickname: mess.ip}</span>
+                                <span>{mess.nickname?mess.nickname: '匿名'}</span>
                                 <span>{mess.gmtCreated}</span>
                             </li>
                         )
