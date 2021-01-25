@@ -4,6 +4,7 @@ import { ARTICLE_BANNER_DEFAULT } from '../lib/constants';
 import styles from '../styles/articleList.module.scss';
 import React from 'react';
 import httpAgent from '../httpAgent';
+import { getTwoArrayObiectKeys } from 'zgl-utils-js';
 
 class ArticleList extends React.Component {
     constructor(props) {
@@ -16,14 +17,16 @@ class ArticleList extends React.Component {
         httpAgent({url: '/article/getUserArticeleThumbs', method: 'post' , params: {
             userid: localStorage.getItem("userid")
         }}).then(res => {
-            const list = [...this.state.article_list];
-            res.data.forEach(element => {
-                this.setState({
-                    article_list: list.map((cur) => {
-                        return {...cur, thumdsStatus: (cur.id === element.articleId && element.thumdsStatus === 1)?1:0}
-                    })
+            const list = getTwoArrayObiectKeys(res.data, [...this.state.article_list], {
+                aid: 'articleId',
+                bid: 'id',
+                keys: ['thumdsStatus']
+            })
+            this.setState({
+                article_list: list.map((cur) => {
+                    return {...cur, thumdsStatus: cur.thumdsStatus}
                 })
-            });
+            })
         })
     }
     render() {
