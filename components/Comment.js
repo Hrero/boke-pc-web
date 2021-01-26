@@ -190,7 +190,7 @@ class Comment extends React.Component {
                                             <a className={styles._1OhGeD} href="#" target="_blank" rel="noopener noreferrer">{comment.userInfo?.nickname}</a>
                                         </div>
                                         <div className={styles._1xqkrI}>
-                                            <span>{commentList.length}楼 </span><time >{comment.createDate}</time>
+                                            <span>{commentList.length - index}楼 </span><time >{comment.createDate}</time>
                                         </div>
                                         <div className={styles._2bDGm4}>{comment.content}</div>
                                         <div className={styles._2ti5br}>
