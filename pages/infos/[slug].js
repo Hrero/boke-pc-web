@@ -30,7 +30,6 @@ class Info extends React.Component {
             }
         })
     }
-    
     render() {
         const { info_Article_Vo, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, com_hot_article, info_commentList_list } = this.state.initialReduxState;
 
