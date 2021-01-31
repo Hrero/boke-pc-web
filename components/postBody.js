@@ -10,6 +10,18 @@ export default class PostBody extends React.Component {
         this.state = {
         }
     }
+    componentDidMount() {
+        /**
+         * a 标签添加样式
+         */
+        var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+        var myhost = window.location.host;
+        aTagArr.forEach((e, i) => {
+            if(!e.href) return false;
+            const ohost = e.href.match(/:\/\/(.*?)\//i);
+            ohost[1] != myhost ? e.target = "_blank" : null;
+        });
+    }
     render() {
         const { au_in_for, content, slug, info_commentList_list } = this.props;
         const { title } = au_in_for;
