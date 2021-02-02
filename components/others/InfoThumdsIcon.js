@@ -131,7 +131,7 @@ class Intro extends React.Component {
                 <div className={styles._1pUUKr} onClick={this.goBackpage}>
                     <div  className={styles.back} >
                         <i className={styles.anticonBack}>
-                            <svg t="1612148409434" class="icon" viewBox="0 0 1024 1024" version="1.1" width="24" height="24" p-id="2002">
+                            <svg t="1612148409434" className="icon" viewBox="0 0 1024 1024" version="1.1" width="24" height="24" p-id="2002">
                                 <path d="M475.591 300.373V175.218c-11.378-52.338-54.613-20.48-54.613-20.48L120.604 411.876c-65.99 45.51-4.55 79.644-4.55 79.644l295.822 254.862c59.164 43.236 63.715-22.755 63.715-22.755V607.573c300.373-93.297 423.253 279.894 423.253 279.894 11.378 20.48 18.205 0 18.205 0C1033.102 327.68 475.59 300.373 475.59 300.373z" p-id="2003" fill="#bfbfbf"></path>
                             </svg>
                         </i>

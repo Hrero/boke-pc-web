@@ -4,10 +4,8 @@ import httpServer from '../../httpServer';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import InfoThumdsIcon from '../../components/others/InfoThumdsIcon';
-import { connect } from 'react-redux';
 import httpAgent from '../../httpAgent';
 import React from 'react';
-import { allAgentInfo } from 'zgl-utils-js';
 import { BackTop } from 'antd';
 import HotArtcle from '../../components/HotArtcle';
 
@@ -33,6 +31,7 @@ class Info extends React.Component {
     render() {
         const { info_Article_Vo, info_view_list, com_label_integer, com_sort_list, html_head_info, au_in_for, com_hot_article, info_commentList_list } = this.state.initialReduxState;
 
+        // com_label_integer = router.query.id?router.query.id: com_label_integer;
         return ( 
             <Layout html_head_info={html_head_info}> 
                 <Header com_sort_list={com_sort_list.data} com_label_integer={com_label_integer}/>
