@@ -36,7 +36,7 @@
         "redux-thunk": "^2.3.0",
         "sass": "^1.30.0",
         "styled-components": "^5.2.1",
-        "zgl-utils-js": "^0.2.45"
+        "zgl-utils-js": "^0.2.46"
     },
     "devDependencies": {
         "css-loader": "^5.0.1",
