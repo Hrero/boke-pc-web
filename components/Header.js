@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 const Header = ({com_label_integer}) => {
     
     const router = useRouter()
-    console.log(router, 'router');
     com_label_integer = router.query.id?router.query.id: com_label_integer;
     com_label_integer = router.query.com_label_integer?router.query.com_label_integer: com_label_integer;
     return (

@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
             au_in_for: {
                 name: 'ELEVEN', 
                 title: info_Article_Vo.data.title,
-                picture: "https://static2.zugeliang.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png",
+                picture: "https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png",
                 gmtCreated: info_Article_Vo.data.gmt_created,
                 message: Math.floor(Math.random() * (100 - 10) + 10),
                 reads: info_Article_Vo.data.lookNum

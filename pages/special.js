@@ -44,7 +44,7 @@ class Special extends React.Component {
                                         <img
                                             alt="博客"
                                             className={styles.imgHead}
-                                            src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3391632359,3407789320&fm=26&gp=0.jpg"
+                                            src="https://static2.zugeliang01.com/lease/img/1f94bc50-65fb-11eb-9f6c-c38736169de1.jpg"
                                         />
 
                                     </div>
@@ -57,7 +57,7 @@ class Special extends React.Component {
                             >
                                 <Meta
                                 className={styles.Meta}
-                                avatar={<Avatar src="https://static2.zugeliang.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
                                 title="boke系统的搭建和发布"
                                 description="这个博客网站的一些搭建和发布信息"
                                 />
@@ -78,7 +78,7 @@ class Special extends React.Component {
                                         <img
                                             alt="shell"
                                             className={styles.imgHead}
-                                            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20200306%2F3e746439381244d1aeee082e7624bfcb.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614823888&t=9493d19d6becdeb6d6dec2fa22adcc82"
+                                            src="https://static2.zugeliang01.com/lease/img/32711300-65fb-11eb-9f6c-c38736169de1.jpg"
                                         />
                                     </div>
                                 }
@@ -90,9 +90,42 @@ class Special extends React.Component {
                             >
                                 <Meta
                                 className={styles.Meta}
-                                avatar={<Avatar src="https://static2.zugeliang.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
                                 title="基于docker+nest+pm2+脚本部署的一个全栈项目"
                                 description="基于docker+nest+pm2+脚本部署的一个全栈项目产出zgl-utils-js包和一个node部署脚本"
+                                />
+                            </Card>
+                        </div>
+                    </Link>
+                    <Link as={`/infos/47?com_label_integer=2`} href={{
+                            pathname: '/infos/47?com_label_integer=2',
+                            query: { com_label_integer: 2 }
+                        }}>
+                        <div className={styles.homeContent} >
+                            <Card
+                                style={{ width: 300 }}
+                                cover={
+                                    <div
+                                        className={styles.imgdiv}
+                                    >
+                                        <img
+                                            alt="shell"
+                                            className={styles.imgHead}
+                                            src="https://static2.zugeliang01.com/lease/img/427d59c0-65fb-11eb-9f6c-c38736169de1.jpg"
+                                        />
+                                    </div>
+                                }
+                                // actions={[
+                                // <SettingOutlined key="setting" />,
+                                // <EditOutlined key="edit" />,
+                                // <EllipsisOutlined key="ellipsis" />,
+                                // ]}
+                            >
+                                <Meta
+                                className={styles.Meta}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                title="使用react native编写ios和安卓应用"
+                                description="使用react native编写ios和安卓应用。回忆辛酸历程、做下记录"
                                 />
                             </Card>
                         </div>
