@@ -130,6 +130,39 @@ class Special extends React.Component {
                             </Card>
                         </div>
                     </Link>
+                    <Link as={`/infos/65?com_label_integer=2`} href={{
+                            pathname: '/infos/65?com_label_integer=2',
+                            query: { com_label_integer: 2 }
+                        }}>
+                        <div className={styles.homeContent} >
+                            <Card
+                                style={{ width: 300 }}
+                                cover={
+                                    <div
+                                        className={styles.imgdiv}
+                                    >
+                                        <img
+                                            alt="shell"
+                                            className={styles.imgHead}
+                                            src="https://static2.zugeliang.com/lease/img/e2898c10-85fc-11eb-acf7-75b1ee4ec044.jpg"
+                                        />
+                                    </div>
+                                }
+                                // actions={[
+                                // <SettingOutlined key="setting" />,
+                                // <EditOutlined key="edit" />,
+                                // <EllipsisOutlined key="ellipsis" />,
+                                // ]}
+                            >
+                                <Meta
+                                className={styles.Meta}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                title="angular+node+java搭建自定义导出系统"
+                                description="node集群+java多线程阻塞队列"
+                                />
+                            </Card>
+                        </div>
+                    </Link>
                 </div>
             </Layout>
         );
