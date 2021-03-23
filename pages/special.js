@@ -163,6 +163,40 @@ class Special extends React.Component {
                             </Card>
                         </div>
                     </Link>
+                    <Link as={`/infos/67?com_label_integer=2`} href={{
+                            pathname: '/infos/67?com_label_integer=2',
+                            query: { com_label_integer: 2 }
+                        }}>
+                        <div className={styles.homeContent} >
+                            <Card
+                                style={{ width: 300 }}
+                                cover={
+                                    <div
+                                        className={styles.imgdiv}
+                                    >
+                                        <img
+                                            alt="博客"
+                                            className={styles.imgHead}
+                                            src="https://static2.zugeliang.com/lease/img/8bdaf660-893f-11eb-9f4a-f7b8b85a8dff.jpg"
+                                        />
+
+                                    </div>
+                                }
+                                // actions={[
+                                // <SettingOutlined key="setting" />,
+                                // <EditOutlined key="edit" />,
+                                // <EllipsisOutlined key="ellipsis" />,
+                                // ]}
+                            >
+                                <Meta
+                                className={styles.Meta}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                title="MQ+Flink+ElasticSearch搭建实时数据中心"
+                                description="MQ+Flink+ElasticSearch+node+Angular+React+echars+d2搭建实时数据中心"
+                                />
+                            </Card>
+                        </div>
+                    </Link>
                 </div>
             </Layout>
         );
