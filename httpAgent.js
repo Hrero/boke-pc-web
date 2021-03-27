@@ -12,6 +12,7 @@ const httpAgent = async ({
         method: 'POST',
         body: JSON.stringify(params),
     });
+    
     return await res.json();
 }
 
