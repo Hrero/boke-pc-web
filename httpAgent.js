@@ -2,7 +2,6 @@ const httpAgent = async ({
     url, method, params
 }) => {
     
-    
     console.log(process.env.requestUrl + '/api/agent');
     const res = await fetch(process.env.requestUrl + '/api/agent', {
         headers: {
