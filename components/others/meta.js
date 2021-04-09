@@ -33,6 +33,7 @@ export default function Meta({html_head_info}) {
       />
 
       <link rel="shortcut icon" href="/favicon/favicon_48px.ico" />
+      <meta name="baidu-site-verification" content="code-AqfM9KnZgU" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
