@@ -31,6 +31,7 @@ export default function Meta({html_head_info}) {
         href="/favicon/safari-pinned-tab.svg"
         color="#000000"
       />
+      
 
       <link rel="shortcut icon" href="/favicon/favicon_48px.ico" />
       <meta name="baidu-site-verification" content="code-AqfM9KnZgU" />
