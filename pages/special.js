@@ -241,7 +241,7 @@ class Special extends React.Component {
                                         <img
                                             alt="博客"
                                             className={styles.imgHead}
-                                            src="https://static2.zugeliang.com/lease/img/d7bb6050-9bfb-11eb-9e14-958b4a3a6393.jpeg"
+                                            src="https://static2.zugeliang.com/lease/img/49775f80-9e7e-11eb-9d15-990ff958742c.png"
                                         />
 
                                     </div>
@@ -250,8 +250,8 @@ class Special extends React.Component {
                                 <Meta
                                 className={styles.Meta}
                                 avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
-                                title="多线程的入门基本知识"
-                                description="进程+线程多进程+多线程+多线程+线程池+线程使用"
+                                title="MYSQL索引相关知识学习"
+                                description="MYSQL索引相关知识学习入门基础"
                                 />
                             </Card>
                         </div>
