@@ -217,12 +217,35 @@ class Special extends React.Component {
 
                                     </div>
                                 }
-                                
-                                // actions={[
-                                // <SettingOutlined key="setting" />,
-                                // <EditOutlined key="edit" />,
-                                // <EllipsisOutlined key="ellipsis" />,
-                                // ]}
+                            >
+                                <Meta
+                                className={styles.Meta}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                title="多线程的入门基本知识"
+                                description="进程+线程多进程+多线程+多线程+线程池+线程使用"
+                                />
+                            </Card>
+                        </div>
+                    </Link>
+                    <Link as={`/infos/77?com_label_integer=2`} href={{
+                            pathname: '/infos/77?com_label_integer=2',
+                            query: { com_label_integer: 2 }
+                        }}>
+                        <div className={styles.homeContent} >
+                            <Card
+                                style={{ width: 300 }}
+                                cover={
+                                    <div
+                                        className={styles.imgdiv}
+                                    >
+                                        <img
+                                            alt="博客"
+                                            className={styles.imgHead}
+                                            src="https://static2.zugeliang.com/lease/img/d7bb6050-9bfb-11eb-9e14-958b4a3a6393.jpeg"
+                                        />
+
+                                    </div>
+                                }
                             >
                                 <Meta
                                 className={styles.Meta}
