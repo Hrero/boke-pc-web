@@ -256,6 +256,34 @@ class Special extends React.Component {
                             </Card>
                         </div>
                     </Link>
+                    <Link as={`/infos/84?com_label_integer=2`} href={{
+                            pathname: '/infos/84?com_label_integer=2',
+                            query: { com_label_integer: 2 }
+                        }}>
+                        <div className={styles.homeContent} >
+                            <Card
+                                style={{ width: 300 }}
+                                cover={
+                                    <div
+                                        className={styles.imgdiv}
+                                    >
+                                        <img
+                                            alt="博客"
+                                            className={styles.imgHead}
+                                            src="https://static2.zugeliang.com/lease/img/49216430-a0d7-11eb-9261-d38fcd70b6f5.png"
+                                        />
+                                    </div>
+                                }
+                            >
+                                <Meta
+                                className={styles.Meta}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                title="ELK日志搭建"
+                                description="ELK日志搭建Elasticsearch+Logstash+Kibana"
+                                />
+                            </Card>
+                        </div>
+                    </Link>
                 </div>
             </Layout>
         );
