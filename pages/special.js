@@ -278,7 +278,7 @@ class Special extends React.Component {
                                 <Meta
                                 className={styles.Meta}
                                 avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
-                                title="es简单学习入门"
+                                title="ES简单学习入门"
                                 description="ELK日志搭建Elasticsearch+Logstash+Kibana"
                                 />
                             </Card>
