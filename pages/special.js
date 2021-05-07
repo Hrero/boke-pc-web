@@ -284,6 +284,34 @@ class Special extends React.Component {
                             </Card>
                         </div>
                     </Link>
+                    <Link as={`/infos/95?com_label_integer=2`} href={{
+                            pathname: '/infos/95?com_label_integer=2',
+                            query: { com_label_integer: 2 }
+                        }}>
+                        <div className={styles.homeContent} >
+                            <Card
+                                style={{ width: 300 }}
+                                cover={
+                                    <div
+                                        className={styles.imgdiv}
+                                    >
+                                        <img
+                                            alt="博客"
+                                            className={styles.imgHead}
+                                            src="https://static2.zugeliang.com/lease/img/5d223390-af02-11eb-ae26-a162d9ead16a.jpeg"
+                                        />
+                                    </div>
+                                }
+                            >
+                                <Meta
+                                className={styles.Meta}
+                                avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
+                                title="gitlab-ci/cd搭建自动发布系统"
+                                description="gitlab-ci/cd自动发布dist静态文件+nginx"
+                                />
+                            </Card>
+                        </div>
+                    </Link>
                 </div>
             </Layout>
         );
