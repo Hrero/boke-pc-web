@@ -192,7 +192,7 @@ class Special extends React.Component {
                                 <Meta
                                 className={styles.Meta}
                                 avatar={<Avatar src="https://static2.zugeliang01.com/lease/img/e70d2cb0-46b4-11eb-804e-e7d3fb3f1f4b.png" />}
-                                title="Canal+MQ+Flink+ElasticSearch搭建实时数据中心"
+                                title="Canal+MQ+ELK搭建数仓"
                                 description="Canal+MQ+Flink+ElasticSearch+node+Angular+React+echars+d2搭建实时数据中心"
                                 />
                             </Card>
