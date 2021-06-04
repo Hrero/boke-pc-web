@@ -36,7 +36,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -70,7 +70,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -103,7 +103,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -136,7 +136,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -169,7 +169,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -182,12 +182,6 @@ class Special extends React.Component {
 
                                     </div>
                                 }
-                                
-                                // actions={[
-                                // <SettingOutlined key="setting" />,
-                                // <EditOutlined key="edit" />,
-                                // <EllipsisOutlined key="ellipsis" />,
-                                // ]}
                             >
                                 <Meta
                                 className={styles.Meta}
@@ -204,7 +198,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -233,7 +227,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -262,7 +256,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -290,7 +284,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}
@@ -318,7 +312,7 @@ class Special extends React.Component {
                         }}>
                         <div className={styles.homeContent} >
                             <Card
-                                style={{ width: 300 }}
+                                // style={{ width: 300 }}
                                 cover={
                                     <div
                                         className={styles.imgdiv}

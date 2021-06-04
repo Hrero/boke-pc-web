@@ -1,16 +1,17 @@
 .homeWrap{
     display: flex;
-    max-width: 960px;
-    width: 960px;
+    // max-width: 960px;
+    width: 1200px;
     flex-wrap: wrap;
     padding: 0 15px;
     margin:60px auto;
 }
 .homeContent{
-    width: 33.3333%;
+    width: 24%;
     margin-top: 30px;
     height: 100%;
     cursor: pointer;
+    margin: 0 0.25%;
 }
 .imgHead{
     width: 100%;
