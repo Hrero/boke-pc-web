@@ -10,6 +10,7 @@ const postRouter = require('./server/postRouter');
 const infoRouter = require('./server/infoRouter');
 const bodyParser = require('body-parser');
 
+
 app.prepare()
     .then(() => {
         const server = express();
